@@ -1,10 +1,10 @@
 {
- "name":"Vampire Survivors Bible",
+ "name":"Mimi and Leo's Bible for Vampire Surviving",
  "short_name":"VS Bible",
  "start_url":"./",
  "scope":"./",
  "display":"standalone",
- "background_color":"#12091c",
- "theme_color":"#12091c",
+ "background_color":"#07061a",
+ "theme_color":"#07061a",
  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"},{"src":"icon.svg","sizes":"512x512","type":"image/svg+xml","purpose":"maskable"}]
 }

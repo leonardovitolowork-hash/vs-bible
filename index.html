@@ -3,23 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#12091c">
+<meta name="theme-color" content="#07061a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="VS Bible">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<title>VS Bible</title>
+<title>Mimi and Leo's Bible for Vampire Surviving</title>
 </head>
 <body>
-<header>
-<div class="top"><h1>🦇 VS Bible</h1><span id="count"></span></div>
-<input id="q" type="search" placeholder="Search anything: name, effect, cheat code…" autocomplete="off" autocapitalize="off" spellcheck="false">
-<nav id="tabs"></nav>
-</header>
-<main id="list"></main>
+<div id="stars"></div>
+<div id="bar" class="hidden"><button id="back">◀ MENU</button><span id="count"></span></div>
+<section id="home">
+<div class="bats"><span>🦇</span><span>🦇</span><span>🦇</span></div>
+<div class="moon"></div>
+<h1 class="logo"><small>Mimi and Leo's</small>BIBLE<small>for</small>VAMPIRE<br>SURVIVING</h1>
+<div id="menu"></div>
+<p class="foot">Base game only · tap an entry for the details · works offline</p>
+</section>
+<div id="searchwrap"><input id="q" type="search" placeholder="🔍 Search: name, effect, cheat code…" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+<main id="list" class="hidden"></main>
 <div id="sheet" class="hidden"><div class="card"><button id="close" aria-label="Close">✕</button><div id="detail"></div></div></div>
 <script src="data.js"></script>
 <script src="app.js"></script>
