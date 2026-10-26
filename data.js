@@ -1,276 +1,44 @@
-const E=[];
-const A=(c,n,s,f,code,w)=>E.push({c,n,s,f,code,w});
-const L=x=>x.split(" + ").map(y=>"[["+y+"]]").join(" + ");
-const NOTE="Stats are level 1 → max. Damage is per hit before Might; cooldown is before Cooldown bonuses. Source: Vampire Survivors Wiki.";
-
-/* ---------- CHARACTERS ---------- */
-const CHR=(n,wp,un,code)=>A("Characters",n,"Starts with "+wp,[["Starting weapon",L(wp)],["How to unlock",un]],code);
-CHR("Antonio Belpaese","Whip","Available from the start.");
-CHR("Imelda Belpaese","Magic Wand","Early progression unlock, bought with gold.");
-CHR("Pasqualina Belpaese","Runetracer","Early progression unlock, bought with gold.");
-CHR("Gennaro Belpaese","Knife","Early progression unlock, bought with gold.");
-CHR("Arca Ladonna","Fire Wand","Raise Fire Wand to level 4.","noneladonna");
-CHR("Porta Ladonna","Lightning Ring","Raise Lightning Ring to level 4.","vivaladonna");
-CHR("Lama Ladonna","Axe","Progression unlock (see wiki).","superladonna");
-CHR("Poe Ratcho","Garlic","Raise Garlic to level 7.","strongestcharacter");
-CHR("Suor Clerici","Santa Water","Recover a cumulative 1,000 HP.","faschiuma");
-CHR("Dommario","King Bible","Earn 5,000 coins in a single run.","bioparco");
-CHR("Krochi Freetto","Cross","Defeat a cumulative 100,000 enemies.","accidenti");
-CHR("Christine Davain","Pentagram","Raise Pentagram to level 7.","crystalmakeup");
-CHR("Pugnala Provola","Phiera Der Tuphello + Eight The Sparrow","Open the coffin in Mad Forest.","flymetothemoon");
-CHR("Giovanna Grana","Gatti Amari","Open the coffin in Inlaid Library.","thetwoassassins");
-CHR("Poppea Pecorina","Song of Mana","Open the coffin in Dairy Plant.","feldschlacht");
-CHR("Concetta Caciotta","Shadow Pinion","Open the coffin in the hidden room of Gallo Tower.","ifeellovevenus");
-CHR("Mortaccio","Bone","Defeat a cumulative 3,000 Skeletons. No Secrets-menu spell.");
-CHR("Yatta Cavallo","Cherry Bomb","Defeat a cumulative 3,000 Lion Heads.","yattapanda");
-CHR("Bianca Ramba","Carréllo","Defeat a cumulative 3,000 Milk Elementals.","carramba");
-CHR("O'Sole Meeo","Celestial Dusting","Defeat a cumulative 3,000 Dragon Shrimps.","reset");
-CHR("Sir Ambrojoe","La Robba","Defeat a cumulative 6,000 Stage Killers (see wiki).","languorino");
-CHR("Iguana Gallo Valletto","Clock Lancet","Obtain the Infinite Corridor.","waitreaction");
-CHR("Divano Thelma","Laurel","Obtain the Crimson Shroud.","quandolodicelui");
-CHR("Zi'Assunta Belpaese","Vento Sacro","Open the coffin in Cappella Magna.","paradigmshift");
-CHR("Queen Sigma","Victory Sword","Complete the collection / endgame unlock (see wiki).","allatonce");
-CHR("Bat Robbert","Pako Battiliar","Evolve Pako Battiliar (see wiki).","bimbumbam");
-CHR("Zi'Appunta Belpaese","Ammo Appalate","Late unlock (see wiki).","frozenbutler");
-CHR("Big Troubler","Unearthly Bolt","Late unlock (see wiki).","wifeseeker");
-CHR("She-Moon Eeta","Glass Fandango","Survive 20 min in Whiteout (see wiki).","cygnusmagnus");
-CHR("Para Kooleo","Penshin Fatcha","Survive 20 min in The Lycaeum (see wiki).","fastisfortuna");
-CHR("Santa Ladonna","Santa Javelin","Late unlock (see wiki).","shesawit");
-CHR("Gazebo","Gaze of Gaea","Late unlock (see wiki).","allegedcannibal");
-CHR("Chula-Reh","Magi-Stone","Late unlock (see wiki).","malcomtent");
-CHR("Space Dude","Phas3r","Late unlock (see wiki).","thegoodguy");
-const SEC=(n,wp,un,code,sub)=>A("Characters",n,sub||"Secret · starts with "+wp,[["Starting weapon",L(wp)],["How to unlock",un]],code);
-SEC("Exdash Exiviiq","Ebony Wings","Type x-x1viiq quickly on the main menu (or use the spell).","x-x1viiq  /  exdashexoneviiq");
-SEC("Toastie","Peachone","Secret condition (collect 100 floor chickens over time). Unlock Exdash first for the spell.","tramezzini");
-SEC("Smith IV","Peachone + Ebony Wings","Need Exdash + Toastie. Type spam on title, character select and stage select, then type humbug in the run.","maybeimastallion");
-SEC("Random","Random weapons","Secret condition (see wiki).","igottagettotheedgeofsoul");
-SEC("Boon Marrabbio","Hidden","Needs Yellow Sign. In Mad Forest remove Pummarola and Skull O'Maniac, follow the pies to a shadow boss and defeat it. Buy for 666g.","fettinepanate");
-SEC("Avatar Infernas","Flames of Misspell","Secret condition in Inlaid Library (see wiki).","kalvasflam");
-SEC("Minnah Mannarah","Hidden","Secret condition in Dairy Plant (see wiki).","foldinthecheese");
-SEC("Leda","Hidden","Secret condition in Gallo Tower (see wiki).","iwillneverletyouforgetaboutme");
-SEC("Cosmo Pavone","Hidden","Secret condition in Cappella Magna (see wiki).","lhovistoio");
-SEC("Peppino","Hidden","As O'Sole in Il Molise, heal the plants with Celestial Dusting for 100,000 HP total. Buy for 666g.","pinociampino");
-SEC("Big Trouser","Candybox","Secret condition in Moongolow (see wiki).","earrivatolarrotino");
-SEC("missingN▯","Hidden","Secret condition in Green Acres (see wiki).","rightninetyseven");
-SEC("Gains Boros","Hidden","Secret condition in The Bone Zone (see wiki).","highfive");
-SEC("Gyorunton","Bracelet","Secret condition in Boss Rash (see wiki).","secondevolution");
-SEC("Mask of the Red Death","Hidden","Defeat the Red Reaper at 30:00 (Endless Mode OFF) after maxing/evolving Clock Lancet and Laurel.","ablasphemousmockery");
-SEC("Bats Bats Bats","Hidden","Secret condition in Bat Country.","whydithavetobebats");
-SEC("Rose De Infernas","Hidden","Secret condition in Astral Stair.","rescuefromtheshadows");
-SEC("Torino","Hidden","Secret condition in Mazerella.","wanderingcolossus");
-SEC("Scorej-Oni","Hidden","Secret condition in Tiny Bridge.","notsureitsthunder");
-SEC("Gyoruntin","Hidden","Secret condition in Carlo Cart.","blunderingfool");
-SEC("Secretino Dagsson","Hidden","Secret condition in Westwoods.","silentlaugh");
-SEC("Space Dette","Hidden","Secret condition in Space 54.","loveknowsnobounds");
-
-/* ---------- WEAPONS ---------- */
-const WP=(n,d,beh,evo,src,arc,code)=>A("Weapons",n,evo.startsWith("—")?"Weapon":"Weapon · evolves",[["What it does",beh],["Stats (L1 → max)",d],["Evolution / combo",evo],["Where from",src],["Arcanas / Darkanas",arc],["Note",NOTE]],code);
-WP("Whip","Damage 10 → 40 · Amount 1 → 2 · Cooldown 1.35s","Horizontal slashes, hits everything in an arc, alternating sides. Ignores Speed and Duration.","Max Whip + [[Hollow Heart]] → [[Bloody Tear]] (open a chest).","Starting weapon of [[Antonio Belpaese]]. Unlocked by default.","[[X — Beginning]] (+3 Amount as Antonio's starting weapon); [[XVI — Slash]] (can crit); [[XXI — Blood Astronomia]] (damaging zones).");
-WP("Magic Wand","Damage 10 → 30 · Amount 1 → 4 · Cooldown 1.2 → 1.0s","Fires a bolt at the nearest enemy. Ignores Duration.","Max Magic Wand + [[Empty Tome]] → [[Holy Wand]].","Starting weapon of [[Imelda Belpaese]]. Unlocked by default.","[[XI — Waltz of Pearls]] (bounces); [[XIV — Jail of Crystal]] (can freeze).","ilbagatto");
-WP("Knife","Damage 6.5 → 16.5 · Amount 1 → 6 · Cooldown 1.0s","Fires quickly in the direction you face. Ignores Duration.","Max Knife + [[Bracer]] → [[Thousand Edge]].","Starting weapon of [[Gennaro Belpaese]]. Unlocked by default.","[[VII — Iron Blue Will]] (bounces/passes through); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","ilcarro");
-WP("Axe","Damage 20 → 80 · Amount 1 → 3 · Cooldown 4s","Thrown in an arc upward; high damage, pierces enemies. Ignores Duration.","Max Axe + [[Candelabrador]] → [[Death Spiral]].","Starting weapon of [[Lama Ladonna]]. Unlocked by default.","[[VII — Iron Blue Will]] (bounces/passes through); [[XVI — Slash]] (can crit); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","latorre");
-WP("Cross","Damage 5 → 35 · Amount 1 → 3 · Cooldown 2 → 1.5s","Boomerang that flies out and returns; targets nearest enemy. Ignores Duration.","Max Cross + [[Clover]] → [[Heaven Sword]].","Starting weapon of [[Krochi Freetto]]. Unlocked by finding a Rosary.","[[XI — Waltz of Pearls]] (bounces); [[IX — Divine Bloodline]] (+5 damage per Armor); [[XVI — Slash]] (can crit).","leremita");
-WP("King Bible","Damage 10 → 30 · Amount 1 → 4 · Duration 3 → 4s","Bibles orbit around you and hit what they touch; Duration/Area matter.","Max King Bible + [[Spellbinder]] → [[Unholy Vespers]].","Starting weapon of [[Dommario]]. Unlocked by default.","[[II — Twilight Requiem]] (explodes when expiring).","lapapessa");
-WP("Fire Wand","Damage 20 → 90 · Amount 3 · Cooldown 3s","Fireball at a random enemy, pierces, heavy damage. Ignores Duration.","Max Fire Wand + [[Spinach]] → [[Hellfire]].","Starting weapon of [[Arca Ladonna]]. Unlocked by destroying 20 light sources.","[[XI — Waltz of Pearls]] (bounces); [[XIX — Heart of Fire]] (explodes on impact); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","ilsole");
-WP("Garlic","Damage 5 → 15 · Area 1 → 2 · Cooldown 1.3s","Damaging aura around you, pushes enemies back. Ignores Amount, Duration and Speed.","Max Garlic + [[Pummarola]] → [[Soul Eater]].","Starting weapon of [[Poe Ratcho]]. Unlocked by consuming 5 Floor Chickens.","[[III — Tragic Princess]] (cooldown reduces while moving); [[XXI — Blood Astronomia]] (damaging zones).","limperatrice");
-WP("Santa Water","Damage 10 → 40 · Amount 1 → 4 · Cooldown 4.5s","Throws vials that leave damaging puddles on random spots. Ignores Speed.","Max Santa Water + [[Attractorb]] → [[La Borra]].","Starting weapon of [[Suor Clerici]]. Unlocked by default.","[[III — Tragic Princess]] (cooldown reduces while moving); [[IX — Divine Bloodline]] (+5 damage per Armor); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","limperatrice");
-WP("Runetracer","Damage 10 → 30 · Duration 2.25 → 3.25s","Bouncing projectile that pierces and ricochets around the screen.","Max Runetracer + [[Armor]] → [[NO FUTURE]].","Starting weapon of [[Pasqualina Belpaese]]. Unlocked by surviving 5 minutes with her.","[[II — Twilight Requiem]] (explodes when expiring); [[XIV — Jail of Crystal]] (can freeze); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","latemperanza");
-WP("Lightning Ring","Damage 15 → 65 · Amount 2 → 6 · Cooldown 4.5s","Calls lightning strikes on random enemies. Ignores Speed and Duration.","Max Lightning Ring + [[Duplicator]] → [[Thunder Loop]].","Starting weapon of [[Porta Ladonna]]. Unlocked by defeating 5,000 enemies.","[[II — Twilight Requiem]] (explodes when expiring); [[III — Tragic Princess]] (cooldown reduces while moving); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","lapapessa");
-WP("Pentagram","Cooldown 90s · Luck affects trigger chance","Periodically blasts everything in view and pulls in XP gems. Ignores everything except Cooldown and Luck.","Max Pentagram + [[Crown]] → [[Gorgeous Moon]].","Starting weapon of [[Christine Davain]]. Unlocked by surviving 20 minutes with any character.","—","crystalmakeup");
-WP("Peachone","Damage 10 → 30 · Amount 4 → 11 · Cooldown 1 → 0.5s","Bird familiar that fires in patterns around you.","Union: max Peachone + max [[Ebony Wings]] → [[Vandalier]] (no passive).","Starting weapon of [[Toastie]]. Unlocked by surviving 10 minutes with any character.","[[I — Gemini]] (counterpart Cygnus); [[II — Twilight Requiem]] (explodes when expiring); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","ilbagatto");
-WP("Ebony Wings","Damage 10 → 30 · Amount 4 → 11 · Cooldown 1 → 0.5s","Dark bird familiar, partner of Peachone.","Union: max Ebony Wings + max [[Peachone]] → [[Vandalier]].","Starting weapon of [[Exdash Exiviiq]]. Unlocked by getting Peachone to level 7.","[[I — Gemini]] (counterpart Zhar Ptytsia); [[II — Twilight Requiem]] (explodes when expiring); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","ilbagatto");
-WP("Phiera Der Tuphello","Damage 5 → 15 · Amount 1 → 3 · Cooldown 1.4s","Rapid-fire gun in four fixed directions. Ignores Duration.","Union: max Phiera + max Eight The Sparrow + [[Tirajisú]] → [[Phieraggi]].","Starting weapon of [[Pugnala Provola]]. Unlocked by surviving 10 minutes with Pugnala.","[[I — Gemini]] (counterpart Red Muscle); [[VII — Iron Blue Will]] (bounces/passes through); [[XIV — Jail of Crystal]] (can freeze); [[XIX — Heart of Fire]] (explodes on impact).","ilbagatto");
-WP("Eight The Sparrow","Damage 5 → 15 · Amount 1 → 3 · Cooldown 1.4s","Rapid-fire partner of Phiera. Ignores Duration.","Union with [[Phiera Der Tuphello]] + [[Tirajisú]] → [[Phieraggi]].","Starting weapon of [[Pugnala Provola]]. Unlocked by surviving 15 minutes with Pugnala.","[[I — Gemini]] (counterpart Twice Upon a Time); [[VII — Iron Blue Will]] (bounces/passes through); [[XIV — Jail of Crystal]] (can freeze); [[XIX — Heart of Fire]] (explodes on impact).","ilbagatto");
-WP("Gatti Amari","Damage 10 · Amount 1 → 3 · Cooldown 5s","Summons cats that attack vertically; interacts with pickups. Best with Luck and Floor Chicken.","Max Gatti Amari + [[Stone Mask]] → [[Vicious Hunger]].","Starting weapon of [[Giovanna Grana]]. Unlocked by surviving 15 minutes with her.","[[I — Gemini]] (counterpart Flock Destroyer); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","ilbagatto");
-WP("Song of Mana","Damage 10 → 40 · Area 1 → 2.75 · Cooldown 2 → 4.25s","Vertical sonic attack that pierces. Ignores Speed and Amount.","Max Song of Mana + [[Skull O'Maniac]] → [[Mannajja]].","Starting weapon of [[Poppea Pecorina]]. Unlocked by surviving 15 minutes with her.","—","feldschlacht");
-WP("Shadow Pinion","Damage 10 → 25 · Amount 1 → 2 · Cooldown 6s","Strikes enemies around you as you move. Best with Move Speed.","Max Shadow Pinion + [[Wings]] → [[Valkyrie Turner]].","Starting weapon of [[Concetta Caciotta]]. Unlocked by surviving 15 minutes with her.","[[II — Twilight Requiem]] (explodes when expiring); [[XIX — Heart of Fire]] (explodes on impact); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","lapapessa");
-WP("Clock Lancet","Duration 2 → 6s · Cooldown 2s","Lancet that slows/freezes enemies in a line. Ignores Might, Speed, Amount and Area.","Max Clock Lancet + max [[Silver Ring]] + max [[Gold Ring]] → [[Infinite Corridor]].","Starting weapon of [[Iguana Gallo Valletto]]. Unlocked by finding an Orologion.","—","waitreaction");
-WP("Laurel","Cooldown 10 → 8s · Ignores everything except Cooldown","Protective barrier that absorbs hits.","Max Laurel + max [[Metaglio Left]] + max [[Metaglio Right]] → [[Crimson Shroud]].","Starting weapon of [[Divano Thelma]]. Unlocked by default.","—","quandolodicelui");
-WP("Vento Sacro","Damage 2 → 6 · Amount 4 → 7 · Cooldown 2s","Wind attack that follows your movement. Stronger with continuous movement; can crit.","Union: Vento Sacro + [[Bloody Tear]] → [[Fuwalafuwaloo]].","Starting weapon of [[Zi'Assunta Belpaese]]. Unlocked by surviving 15 minutes with her.","[[V — Pale Diamond Incursion]] (nearest-enemy targeting).","paradigmshift");
-WP("Bone","Damage 5 → 65 · Amount 1 → 3 · Cooldown 3s","Throws bones in a bouncing arc.","Max Bone → [[Anima of Mortaccio]] (no passive).","Starting weapon of [[Mortaccio]].", "[[II — Twilight Requiem]] (explodes when expiring); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","lapapessa");
-WP("Cherry Bomb","Damage 10 → 20 · Amount 1 → 2 · Cooldown 3s","Bouncing bomb that explodes.","Max Cherry Bomb → [[Yatta Daikarin]] (no passive).","Starting weapon of [[Yatta Cavallo]].","—","yattapanda");
-WP("Carréllo","Damage 10 → 100 · Amount 2 · Cooldown 5.5 → 6.9s","Rolling trolley that bounces off screen edges. Ignores Duration.","Max Carréllo → [[Carrozza!]] (no passive).","Starting weapon of [[Bianca Ramba]].","[[III — Tragic Princess]] (cooldown reduces while moving); [[VII — Iron Blue Will]] (bounces/passes through); [[XI — Waltz of Pearls]] (bounces); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","carramba");
-WP("Celestial Dusting","Damage 5 → 10 · Amount 1 → 2 · Cooldown 6s","Dusting attack in your facing direction; heals plants in Il Molise. Ignores Speed.","Max Celestial Dusting → [[Profusione D'Amore]] (no passive).","Starting weapon of [[O'Sole Meeo]]. Can also be bought from the Merchant.","[[II — Twilight Requiem]] (explodes when expiring).","lapapessa");
-WP("La Robba","Damage 10 · Amount 3 → 7 · Cooldown 4.5s","Weapon with flavour attacks around you.","No evolution.","Starting weapon of [[Sir Ambrojoe]].","[[V — Pale Diamond Incursion]] (nearest-enemy targeting).","languorino");
-WP("Bracelet","Damage 10 → 30 · Amount 3 → 4 · Cooldown 1.4s","Fires three projectiles at a random enemy.","Needs no passive: [[Bracelet]] → [[Bi-Bracelet]] → [[Tri-Bracelet]].","Starting weapon of [[Gyorunton]]. Unlocked by surviving 30 minutes with Gallo or Divano.","[[I — Sapphire Mist]] (can fire more than twice); [[XIV — Jail of Crystal]] (can freeze); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","secondevolution");
-WP("Candybox","Special","Lets you choose any unlocked base weapon.","No passive needed: Candybox → [[Super Candybox II Turbo]].","Starting weapon of [[Big Trouser]]. Unlocked by discovering every standard evolution and union.","—","earrivatolarrotino");
-WP("Victory Sword","Damage 5 → 40 · Amount 2 · Cooldown 1.85 → 1.1s","Sword combo at nearest enemy; retaliates. Ignores Speed and Duration.","Gift: max Victory Sword + max [[Torrona's Box]] → [[Sole Solution]] (sword stays).","Starting weapon of [[Queen Sigma]]; unlocked by defeating 100,000 enemies in a run as Sigma.","—","allatonce");
-WP("Flames of Misspell","Damage 10 → 30 · Amount 12 · Cooldown 4 → 2.5s","Emits cones of black flames.","Max Flames + max [[Torrona's Box]] → [[Ashes of Muspell]].","Starting weapon of [[Avatar Infernas]]; others can find it once she is unlocked.","[[I — Sapphire Mist]] (can fire more than twice); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","kalvasflam");
-WP("Pako Battiliar","Damage 20 · Cooldown 2s","Bat familiar; may retaliate when losing health. Ignores Duration.","Max Pako + max [[Hollow Heart]] → [[Mazo Familiar]].","Starting weapon of [[Bat Robbert]]. Unlocked by killing 161,616 bats in total.","[[V — Pale Diamond Incursion]] (nearest-enemy targeting).","bimbumbam");
-WP("Ammo Appalate","Damage 5 · Cooldown 2.2s","Aims in faced direction; stockpiles projectiles when enemies are out of range. Ignores Duration.","Max Ammo Appalate → [[Gunastrophe]] (no passive).","Starting weapon of [[Zi'Appunta Belpaese]]. Unlocked by defeating 251,096 shooting enemies.","[[I — Gemini]] (counterpart Horse Cartridge); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","ilbagatto");
-WP("Unearthly Bolt","Damage 10 · Cooldown 2s","Critical hits generate damaging zones; revivals affect consecutive crit damage.","Max Unearthly Bolt → [[Spirit Disturbance]] (no passive).","Starting weapon of [[Big Troubler]]. Unlocked by defeating 1 Bat Dragon.","—","wifeseeker");
-WP("Glass Fandango","Damage 10 · Cooldown 2s","Stronger with movement, Orologions and against frozen enemies. Ignores Speed and Duration.","Max Glass Fandango + max [[Wings]] → [[Celestial Voulge]].","Starting weapon of [[She-Moon Eeta]]; reach level 7 to use it with anyone.","—","cygnusmagnus");
-WP("Penshin Fatcha","Special","A selection of aquatic armaments that can evolve endlessly.","See wiki for evolution choices.","Starting weapon of [[Para Kooleo]].","—","fastisfortuna");
-WP("Santa Javelin","Damage 20 · Cooldown 2s","Duration affects Amount; can crit. Ignores Speed.","Max Santa Javelin → [[Seraphic Cry]] (no passive).","Starting weapon of [[Santa Ladonna]]. Unlocked by getting it to level 7.","[[I — Gemini]] (counterpart Levelin'Eh); [[II — Twilight Requiem]] (explodes when expiring); [[III — Tragic Princess]] (cooldown reduces while moving); [[V — Pale Diamond Incursion]] (nearest-enemy targeting).","shesawit");
-WP("Gaze of Gaea","Damage 5 · Cooldown 2s","Might defang enemies. Ignores Speed.","Max Gaze of Gaea → [[Embrace of Gaea]] (no passive).","Starting weapon of [[Gazebo]]. Unlocked by defeating 0 enemies in The Coop.","—","allegedcannibal");
-WP("Magi-Stone","Damage 10 · Cooldown 2s","Deals fixed damage based on weapon level. Ignores Might and Duration.","Max Magi-Stone → [[Kyra-Stones]] (no passive).","Starting weapon of [[Chula-Reh]]. Unlocked by getting it to level 7.","—","malcomtent");
-WP("Phas3r","Damage 5 · Cooldown 2s","Generates thin damaging zones. High Amount scaling. Ignores Speed and Duration.","Max Phas3r → [[Photonstorm]] (no passive).","Starting weapon of [[Space Dude]]. Unlocked by getting it to level 7.","—","thegoodguy");
-WP("Arma Dio","Special","Lets you choose an extra passive weapon.","— see wiki","Spell only.","—","apritisedano");
-WP("Chaos Rune","Damage 10 · Cooldown 2s","Speed and Duration affect the number of hitboxes instead.","Max Chaos Rune → [[Wicked Ruler]] (no passive).","Spell only.","—","guinigi  /  guinigigi");
-
-/* ---------- EVOLUTIONS ---------- */
-const EV=(n,rec,d,arc)=>A("Evolutions",n,rec,[["Recipe",rec],["What it does",d],["Arcanas / Darkanas",arc||"—"],["How","Base weapon (and required passive) must be at max level, then open an eligible treasure chest. Unions need both weapons maxed. Chests only evolve if the recipe is met when it opens."]]);
-EV("Bloody Tear","Whip + Hollow Heart","Horizontal slashes, pierces; can crit and absorb HP. Damage 40, Amount 2.","[[XVI — Slash]] (can crit); [[XXI — Blood Astronomia]] (damaging zones).");
-EV("Holy Wand","Magic Wand + Empty Tome","Fires at the nearest enemy with no delay between shots. Damage 30, Amount 4.","[[XI — Waltz of Pearls]] (bounces); [[XIV — Jail of Crystal]] (can freeze).");
-EV("Thousand Edge","Knife + Bracer","Fires rapidly in your facing direction with no delay. Damage 16.5, Amount 6.","[[VII — Iron Blue Will]] (bounces/passes through).");
-EV("Death Spiral","Axe + Candelabrador","High damage, high area scaling, pierces. Damage 60, Amount 9.","[[VII — Iron Blue Will]] (bounces/passes through); [[XVI — Slash]] (can crit).");
-EV("Heaven Sword","Cross + Clover","Aims at the nearest enemy, boomerang effect, can crit. Damage 77.","[[XI — Waltz of Pearls]] (bounces); [[IX — Divine Bloodline]] (+5 damage per Armor); [[XVI — Slash]] (can crit).");
-EV("Unholy Vespers","King Bible + Spellbinder","Orbits around you and never ends. Damage 30, Amount 4.","[[II — Twilight Requiem]] (explodes when expiring).");
-EV("Hellfire","Fire Wand + Spinach","Heavy damage fireballs at random enemies; pierce. Damage 100, Amount 2.","[[XI — Waltz of Pearls]] (bounces); [[XIX — Heart of Fire]] (explodes on impact).");
-EV("Soul Eater","Garlic + Pummarola","Damages nearby enemies, lowers their knockback/freeze resistance; stronger when you heal. Damage 20, Area 3.","[[III — Tragic Princess]] (cooldown reduces while moving); [[XXI — Blood Astronomia]] (damaging zones).");
-EV("La Borra","Santa Water + Attractorb","Damaging zones that follow you and grow when they move. Damage 40, Amount 4.","[[III — Tragic Princess]] (cooldown reduces while moving); [[IX — Divine Bloodline]] (+5 damage per Armor).");
-EV("NO FUTURE","Runetracer + Armor","Pierces and bounces; explodes on bounce and in retaliation. Damage 30.","[[XIV — Jail of Crystal]] (can freeze).");
-EV("Thunder Loop","Lightning Ring + Duplicator","Strikes random enemies; projectiles strike twice. Damage 65, Amount 6.","[[II — Twilight Requiem]] (explodes when expiring); [[III — Tragic Princess]] (cooldown reduces while moving).");
-EV("Gorgeous Moon","Pentagram + Crown","Erases everything in sight; generates extra gems and gathers all of them.","—");
-EV("Vicious Hunger","Gatti Amari + Stone Mask","Vertical attack, pierces; can turn anything into gold. Damage 30, Amount 2.","[[I — Gemini]] (counterpart Flock Destroyer).");
-EV("Mannajja","Song of Mana + Skull O'Maniac","Vertical attack, pierces; may slow enemies. Damage 40, Area 6.","—");
-EV("Valkyrie Turner","Shadow Pinion + Wings","Damaging zones while moving, strikes when stopped; bigger, longer, faster. Damage 35.","[[XIX — Heart of Fire]] (explodes on impact).");
-EV("Infinite Corridor","Clock Lancet + Silver Ring + Gold Ring","Evolved lancet; both rings must be max.","—");
-EV("Crimson Shroud","Laurel + Metaglio Left + Metaglio Right","Evolved barrier; both Metaglios must be max.","—");
-EV("Vandalier","Peachone + Ebony Wings","Union of the two birds. Both weapons max, no passive. Damage 28, Amount 20.","[[I — Gemini]] (counterparts Cygnus and Zhar Ptytsia).");
-EV("Phieraggi","Phiera Der Tuphello + Eight The Sparrow + Tirajisú","Union of the two guns. Needs Tirajisú. Damage 15, Amount 4.","[[I — Gemini]] (counterparts Red Muscle and Twice Upon a Time); [[XIX — Heart of Fire]] (explodes on impact).");
-EV("Fuwalafuwaloo","Vento Sacro + Bloody Tear","Union of Vento Sacro and evolved whip. Damage 20, Amount 8.","[[XVI — Slash]] (can crit); [[XXI — Blood Astronomia]] (damaging zones).");
-EV("Anima of Mortaccio","Bone","Bone upgrade; no passive needed. Damage 65, Amount 3.","[[II — Twilight Requiem]] (explodes when expiring).");
-EV("Yatta Daikarin","Cherry Bomb","Cherry Bomb upgrade; no passive needed.","—");
-EV("Carrozza!","Carréllo","Carréllo upgrade; no passive needed.","[[III — Tragic Princess]] (cooldown reduces while moving).");
-EV("Profusione D'Amore","Celestial Dusting","Celestial Dusting upgrade; no passive needed.","[[II — Twilight Requiem]] (explodes when expiring).");
-EV("Bi-Bracelet","Bracelet","Bracelet upgrade; no passive needed. Damage 30, Amount 6.","[[I — Sapphire Mist]] (can fire more than twice); [[II — Twilight Requiem]] (explodes when expiring); [[XIV — Jail of Crystal]] (can freeze).");
-EV("Tri-Bracelet","Bi-Bracelet","Final bracelet form; no passive needed. Damage 50, Amount 9.","[[I — Sapphire Mist]] (can fire more than twice); [[II — Twilight Requiem]] (explodes when expiring); [[XIV — Jail of Crystal]] (can freeze).");
-EV("Super Candybox II Turbo","Candybox","Candybox upgrade; no passive needed.","—");
-EV("Mazo Familiar","Pako Battiliar + Hollow Heart","Larger bats at intervals and in retaliation.","—");
-EV("Ashes of Muspell","Flames of Misspell + Torrona's Box","Black flames in your facing direction; damage grows with kills. Damage 50, Amount 12.","[[I — Sapphire Mist]] (can fire more than twice).");
-EV("Celestial Voulge","Glass Fandango + Wings","Attacks faster in your facing direction while moving; all around and slower when still.","—");
-EV("Seraphic Cry","Santa Javelin","Santa Javelin upgrade; no passive needed.","[[I — Gemini]] (counterpart Levelin'Eh); [[II — Twilight Requiem]] (explodes when expiring); [[III — Tragic Princess]] (cooldown reduces while moving).");
-EV("Embrace of Gaea","Gaze of Gaea","Gaze of Gaea upgrade; no passive needed.","—");
-EV("Kyra-Stones","Magi-Stone","Magi-Stone upgrade; no passive needed.","—");
-EV("Photonstorm","Phas3r","Phas3r upgrade; no passive needed.","—");
-EV("Wicked Ruler","Chaos Rune","Chaos Rune upgrade; no passive needed.","—");
-EV("Sole Solution","Victory Sword + Torrona's Box","A gift: Victory Sword stays and you also get Sole Solution.","—");
-
-/* ---------- PASSIVES ---------- */
-const PS=(n,eff,note,arc)=>A("Passives",n,eff,[["Effect",eff],["Evolution use",note||"—"],["Arcanas / Darkanas",arc||"—"],["Note","Per-level values are summaries; check wiki for exact numbers."]]);
-PS("Spinach","+10% Might per level (max 5)","Fire Wand → Hellfire","[[XVI — Slash]] (crit chance/damage)");
-PS("Armor","-1 damage taken per level (max 5)","Runetracer → NO FUTURE","[[IX — Divine Bloodline]] (boosts listed weapon damage and retaliation)");
-PS("Hollow Heart","+20% Max HP per level (max 5)","Whip → Bloody Tear; Pako Battiliar → Mazo Familiar","[[XIV — Jail of Crystal]] (low-HP Orologion)");
-PS("Pummarola","+0.2 HP/sec recovery per level (max 5)","Garlic → Soul Eater","[[VI — Sarabande of Healing]] (healing doubled and damages enemies)");
-PS("Empty Tome","-8% cooldown per level (max 5)","Magic Wand → Holy Wand","—");
-PS("Candelabrador","+10% Area per level (max 2)","Axe → Death Spiral","[[XVIII — Boogaloo of Illusions]] (Area fluctuates)");
-PS("Bracer","+10% projectile speed per level (max 2)","Knife → Thousand Edge","[[V — Chaos in the Dark Night]] (Projectile Speed fluctuates); [[V — Pale Diamond Incursion]] (Cooldown bonus from Speed)");
-PS("Spellbinder","+10% Duration per level (max 2)","King Bible → Unholy Vespers","[[XVII — Lost & Found Painting]] (Duration fluctuates)");
-PS("Duplicator","+1 Amount (max 2)","Lightning Ring → Thunder Loop","[[X — Beginning]] (Amount bonus)");
-PS("Wings","+10% move speed per level (max 5)","Shadow Pinion → Valkyrie Turner; Glass Fandango → Celestial Voulge","[[III — Tragic Princess]] (moving reduces listed cooldowns)");
-PS("Attractorb","+25% pickup Magnet range per level (max 5)","Santa Water → La Borra","[[VIII — Mad Groove]] (pulls items); [[XXI — Blood Astronomia]] (Magnet affects zones)");
-PS("Clover","+10% Luck per level (max 5)","Cross → Heaven Sword","[[XIII — Wicked Season]] (Luck doubles periodically)");
-PS("Crown","+8% Growth (XP) per level (max 5)","Pentagram → Gorgeous Moon","[[XIII — Wicked Season]] (Growth doubles periodically)");
-PS("Stone Mask","+10% Greed (gold) per level (max 5)","Gatti Amari → Vicious Hunger","[[XIII — Wicked Season]] (Greed doubles periodically)");
-PS("Skull O'Maniac","+10% Curse per level (max 5): more/harder enemies, more rewards","Song of Mana → Mannajja","[[II — Twilight Requiem]] (explosion damage); [[XIII — Wicked Season]] (Curse doubles periodically)");
-PS("Tirajisú","Revival bonus","Phiera + Eight The Sparrow → Phieraggi","[[IV — Awake]] (revivals)");
-PS("Torrona's Box","Late passive; see wiki","Flames of Misspell → Ashes of Muspell; Victory Sword → Sole Solution","—");
-PS("Silver Ring","Hidden passive revealed by the Yellow Sign","Clock Lancet → Infinite Corridor (with Gold Ring)","—");
-PS("Gold Ring","Hidden passive revealed by the Yellow Sign","Clock Lancet → Infinite Corridor (with Silver Ring)","—");
-PS("Metaglio Left","Hidden passive revealed by the Yellow Sign","Laurel → Crimson Shroud (with Metaglio Right)","—");
-PS("Metaglio Right","Hidden passive revealed by the Yellow Sign","Laurel → Crimson Shroud (with Metaglio Left)","—");
-
-/* ---------- RELICS ---------- */
-const RL=(n,eff,where,code)=>A("Relics",n,eff,[["What it does",eff],["Where / how",where]],code);
-RL("Grim Grimoire","Adds the Open Grimoire menu to pause: discovered evolutions and unions.","Found in Inlaid Library.","thisshouldhavebeenunlockedbydefault");
-RL("Ars Gouda","Unlocks the Bestiary of defeated enemies.","Found in Dairy Plant.","thistooshouldhavebeenunlockedbydefault");
-RL("Milky Way Map","Adds a map to the pause menu.","Found in Dairy Plant.","leadmetothecheese");
-RL("Magic Banger","Lets you choose the music for a stage.","Found in Green Acres.","thankelrond");
-RL("Sorceress' Tears","Unlocks Hurry Mode (faster game timer).","Found in Gallo Tower.","timecompression");
-RL("Glass Vizard","Makes the Merchant appear in all stages.","See wiki.","eggseggseggs");
-RL("Mindbender","Character appearance options, favourites, and weapon-loadout limit.","Unlocked by progress in the Collection (see wiki).","teleportustomars");
-RL("Yellow Sign","Reveals hidden items in stages and enables related hidden events.","Found in Holy Forbidden. Spell: type ihaveseenit seven times, no spaces.","ihaveseenit".repeat(7));
-RL("Great Gospel","Unlocks Limit Break: weapons keep levelling past the usual max.","Cappella Magna: defeat The Ender (Yellow Sign needed).","icanhearthecriesofcaptainplanet");
-RL("Gracia's Mirror","Unlocks Inverse Mode (harder stages).","Found in Eudaimonia Machine.","freezearrow");
-RL("Seventh Trumpet","Unlocks Endless Mode: Reapers disabled, run can continue.","Found in Eudaimonia Machine.","dootdoot");
-RL("Atlas Gate","Unlocks Adventures.","Found in Boss Rash.","tolovetoshine");
-RL("Chaos Malachite","Mortaccio can transform at level 80.","Bat Country.","gottagofast");
-RL("Chaos Rosalia","Yatta Cavallo can transform at level 80.","Astral Stair.","coldwaterhotwater");
-RL("Chaos Lazulia","Bianca Ramba can transform at level 80.","Mazerella.","shoppingcarttheory");
-RL("Chaos Altemanna","O'Sole Meeo can transform at level 80.","Tiny Bridge.","chapatribe");
-RL("Apoplexy","Unlocks the Charm PowerUp (more enemies spawn).","Bat Country.","tengillesbalm");
-RL("Antidote","Unlocks the Defang PowerUp (some enemies spawn harmless).","Whiteout.","duraistruth");
-RL("Trisection","Adds Random Events as a stage-selection option.","Astral Stair.","haeralisploy");
-RL("Brave Story","Adds Random Level Up choices as a stage option.","Space 54.","lugrianstale");
-RL("Masquerade","Unlocks Party Mode.","Westwoods.","arefriendselectric");
-RL("Wax Fetish","Unlocks Preserve PowerUp (keep Reroll/Skip/Banish uses).","Mazerella.","rererecycle");
-RL("Roast Chicken with a Clock in the Middle","Adds a button to speed up gameplay.","The Coop.","yeoldeshoppe");
-RL("Green Eyes Vizard","Bat Dragons can appear in Mad Forest and Il Molise.","The Lycaeum.","greeneyesbatdragon");
-RL("Survarocchi","Survarot cards can become available from light sources.","The Lycaeum.","survassami");
-RL("Enemahs","Adds more Survarots to future Survarot drafts.","The Lycaeum.","iamblocked");
-RL("Randomazzo","Unlocks Arcanas. The spell also grants Sarabande of Healing.","Found in Gallo Tower.","randomazzami");
-RL("Darkasso","Unlocks Darkanas. The spell also grants Moonlight Bolero.","Room 1665.","darkassami");
-RL("Forbidden Scrolls of Morbane","Unlocks the Secrets menu (Cast Spell).","Defeat the Bone Orb in The Bone Zone (Yellow Sign needed). No spell.");
-
-/* ---------- ARCANAS ---------- */
-const AR=(n,eff,aff,un,code)=>A("Arcanas",n,eff,[["Effect",eff],["Affected weapons / items",aff],["Unlock",un]],code);
-AR("0 — Game Killer","Halts XP gain; XP gems become exploding projectiles. All chests contain at least 3 items.","All XP gems and treasure chests.","Defeat the final enemy in Cappella Magna.","ilmatto");
-AR("I — Gemini","Listed weapons come with a counterpart.","[[Peachone]] → Cygnus; [[Ebony Wings]] → Zhar Ptytsia; [[Phiera Der Tuphello]] → Red Muscle; [[Eight The Sparrow]] → Twice Upon a Time; [[Gatti Amari]] → Flock Destroyer; [[Ammo Appalate]] → Horse Cartridge; [[Santa Javelin]] → Levelin'Eh.","Reach level 50 with Pugnala.","ilbagatto");
-AR("II — Twilight Requiem","Listed weapon projectiles explode when they expire; explosion damage scales with Curse.","[[King Bible]] / [[Unholy Vespers]]; [[Lightning Ring]] / [[Thunder Loop]]; [[Peachone]] / [[Ebony Wings]] / [[Vandalier]]; [[Runetracer]]; [[Shadow Pinion]]; [[Bone]] / [[Anima of Mortaccio]]; [[Celestial Dusting]] / [[Profusione D'Amore]]; [[Bi-Bracelet]] / [[Tri-Bracelet]]; [[Santa Javelin]] / [[Seraphic Cry]].","Reach level 50 with Dommario.","lapapessa");
-AR("III — Tragic Princess","Cooldown of listed weapons reduces while moving; works separately from Cooldown stat.","[[Garlic]] / [[Soul Eater]]; [[Santa Water]] / [[La Borra]]; [[Lightning Ring]] / [[Thunder Loop]]; [[Santa Javelin]] / [[Seraphic Cry]]; [[Carréllo]].","Reach level 50 with Porta.","limperatrice");
-AR("IV — Awake","+3 revivals. Each use: +10% Max HP, +1 Armor, +5% Might/Area/Duration/Speed.","Revivals and character stats.","Reach level 50 with Krochi.","limperatore");
-AR("V — Chaos in the Dark Night","Projectile Speed fluctuates -50%…+50% over 10s; +1% speed per level.","All projectile weapons; especially useful with [[Bracer]].","Reach level 50 with Giovanna.","ilpapa");
-AR("VI — Sarabande of Healing","Healing doubled; recovering HP damages nearby enemies for the same amount.","All healing, including [[Pummarola]], Floor Chickens and recovery effects.","Come with the Randomazzo.","randomazzami");
-AR("VII — Iron Blue Will","Listed projectiles gain up to 3 bounces and may pass through enemies/walls.","[[Knife]] / [[Thousand Edge]]; [[Axe]] / [[Death Spiral]]; [[Phiera Der Tuphello]] / [[Eight The Sparrow]]; [[Carréllo]].","Reach level 50 with Gennaro.","ilcarro");
-AR("VIII — Mad Groove","Every 2 minutes attracts stage items, pickups and light sources.","Floor pickups, chests, light sources and stage items.","Reach minute 31 in Mad Forest.","laforza");
-AR("IX — Divine Bloodline","Armor boosts listed damage and reflects enemy damage; missing HP gives bonus damage; retaliatory kills give +0.5 Max HP.","[[Cross]] / [[Heaven Sword]]; [[Santa Water]] / [[La Borra]].","Reach level 50 with Clerici.","leremita");
-AR("X — Beginning","Listed weapons get +1 Amount; your starting weapon and its evolution/union get +3.","All weapons; strongest effect on your starting weapon and its evolution.","Reach level 50 with Antonio.","laruota");
-AR("XI — Waltz of Pearls","Listed projectiles gain up to 3 bounces.","[[Magic Wand]] / [[Holy Wand]]; [[Fire Wand]] / [[Hellfire]]; [[Cross]] / [[Heaven Sword]]; [[Carréllo]].","Reach level 50 with Imelda.","lagiustizia");
-AR("XII — Out of Bounds","Freezing enemies causes explosions; Orologions easier to find.","Freeze effects, including [[Clock Lancet]] and [[Jail of Crystal]] freezes.","Reach minute 31 in Gallo Tower.","lappeso");
-AR("XIII — Wicked Season","Growth, Luck, Greed and Curse double at fixed intervals; +1% of each every 2 levels.","[[Crown]] (Growth), [[Clover]] (Luck), [[Stone Mask]] (Greed), [[Skull O'Maniac]] (Curse).","Reach level 50 with Christine.","lamorte");
-AR("XIV — Jail of Crystal","Listed projectiles can freeze enemies.","[[Magic Wand]] / [[Holy Wand]]; [[Runetracer]] / [[NO FUTURE]]; [[Eight The Sparrow]]; [[Bracelet]] / [[Bi-Bracelet]] / [[Tri-Bracelet]].","Reach level 50 with Pasqualina.","latemperanza");
-AR("XV — Disco of Gold","Floor coin bags trigger Gold Fever; gold pickups restore HP.","Gold Coin pickups and coin bags.","Reach minute 31 in Inlaid Library.","ildiavolo");
-AR("XVI — Slash","Enables critical hits for listed weapons; doubles overall crit damage.","[[Whip]] / [[Bloody Tear]]; [[Axe]] / [[Death Spiral]]; [[Cross]] / [[Heaven Sword]]; [[Vento Sacro]] / [[Fuwalafuwaloo]]; [[Spinach]].","Reach level 50 with Lama.","latorre");
-AR("XVII — Lost & Found Painting","Duration fluctuates -50%…+50% over 10s; +1% duration per level.","All Duration-based weapons; especially [[Spellbinder]] builds.","Reach level 50 with Poppea.","lastella");
-AR("XVIII — Boogaloo of Illusions","Area fluctuates -25%…+25% over 10s; +1% area per level.","All Area-based weapons; especially [[Candelabrador]] builds.","Reach level 50 with Concetta.","laluna");
-AR("XIX — Heart of Fire","Listed projectiles explode on impact; light sources explode; you explode when damaged.","[[Fire Wand]] / [[Hellfire]]; [[Shadow Pinion]] / [[Valkyrie Turner]]; [[Phiera Der Tuphello]] / [[Eight The Sparrow]] / [[Phieraggi]].","Reach level 50 with Arca.","ilsole");
-AR("XX — Silent Old Sanctuary","+3 Reroll/Skip/Banish; each empty weapon slot gives +20% Might and -8% Cooldown.","Empty weapon slots; Reroll, Skip and Banish.","Reach minute 31 in Dairy Plant.","ilgiudizio");
-AR("XXI — Blood Astronomia","Listed weapons emit damaging zones affected by Amount and Magnet; enemies in Magnet range take damage.","[[Whip]] / [[Bloody Tear]]; [[Garlic]] / [[Soul Eater]]; [[Vento Sacro]] / [[Fuwalafuwaloo]]; [[Attractorb]] (Magnet scaling).","Reach level 50 with Poe.","ilmondo");
-
-/* ---------- DARKANAS ---------- */
-const DK=(n,eff,aff,un,code)=>A("Darkanas",n,eff,[["Effect",eff],["Affected weapons / items",aff],["Unlock",un]],code);
-DK("0 — Stake to Your Heart","No XP; enemies drop Gold Coins and damage hits coins instead of HP. A merchant spawns every minute.","All XP gems, enemy damage and Gold Coins.","Defeat a Bat Dragon with Big Troubler while using Game Killer.","ottamli");
-DK("I — Sapphire Mist","All weapons can fire twice; listed weapons get a stronger version.","All weapons; [[Bracelet]] / [[Bi-Bracelet]] / [[Tri-Bracelet]] and [[Flames of Misspell]] / [[Ashes of Muspell]] can fire more than twice.","Reach -85% Cooldown bonus with Space Dude.","ottagabli");
-DK("III — Hidden Anathema","Food pickups grant cumulative random stat bonuses based on rarity/healing value.","All Floor Chicken and food pickups.","Eat as much as possible with Gazebo.","ecirtarepmil");
-DK("V — Pale Diamond Incursion","Listed weapons aim at nearest enemy and gain a Cooldown bonus from Projectile Speed.","[[Knife]]; [[Axe]]; [[Fire Wand]]; [[Santa Water]]; [[Runetracer]]; [[Lightning Ring]]; [[Peachone]]; [[Ebony Wings]]; [[Gatti Amari]]; [[Vento Sacro]]; [[Bone]]; [[Carréllo]]; [[La Robba]]; [[Bracelet]]; [[Flames of Misspell]].","Find 10 Golden Treasure Chests from Zi'Appunta in one run.","apapli");
-DK("VI — Moonlight Bolero","Extra treasure boss every minute; its chest may contain Arcanas or random weapons/passives.","Treasure chests and treasure bosses.","Be embraced by the Darkasso.","darkassami");
-DK("VIII — Edge of the Earth","+3 Thorns, Move Speed fixed at +100%, walk through walls, vacuum chests/lights/weapons.","Movement, Thorns, chests, light sources and floor weapons.","Trigger a Lavatrix Machina with Para Kooleo.","azrofal");
-DK("X — Hail from the Future","Receive one of the listed items when levelling up.","Specific level-up reward items; see the wiki card for the current list.","Trigger a Weird Souls Purifier with Santa Ladonna.","atoural");
-DK("XII — Crystal Cries","Killing frozen enemies grants Max HP, Recovery and Growth; low HP triggers an Orologion.","Frozen enemies and [[Hollow Heart]] / low-health effects.","Trigger a Starry Heavens with She-Moon Eeta.","oseppal");
-DK("XIII — Call of a Mad Moon","Effect depends on Luck (chests/lights), Growth (XP), Greed (gold) or Curse (stronger enemies).","[[Clover]] (Luck), [[Crown]] (Growth), [[Stone Mask]] (Greed), [[Skull O'Maniac]] (Curse).","Reach +999% Luck with Chula-Reh.","etromal");
-DK("XIV — Jaws of a Golden Sky","Listed-weapon kills or invincible touches can turn enemies into gold; Fever also affects Might.","Gold Fever, Gold Coin pickups and invulnerability effects.","Remain invulnerable for 30 seconds with Amberborne.","—");
-DK("XVIII — Victorian Horror","Enemies in Magnet range take Greed-based damage; once per life triggers Cursed World Eater after fatal damage.","[[Attractorb]] / Magnet range and [[Stone Mask]] / Greed.","Survive 30 minutes with no weapons in Inverse Green Acres.","anulal");
-DK("XIX — Heir of Fate","Fire kills grant Max HP and Might; low HP triggers an Nduja Fritta.","Fire-damage weapons and low-health effects.","Survive 15 minutes in Inverse Boss Rash with Random Events and Random Level Ups.","elosli");
-DK("XXI — Wandering the Jet Black","Losing HP creates exploding projectiles; damage scales with recovered HP and Magnet; area scales with Magnet.","[[Hollow Heart]] / recovered HP and [[Attractorb]] / Magnet.","Reach 665 Max Health with Bat Robbert.","odnomli");
-
-/* ---------- STAGES ---------- */
-const ST=(n,d,code)=>A("Stages",n,code?"Stage · has spell":"Stage",[["Info",d]],code);
-ST("Mad Forest","First stage, 30 minutes. Unlocked from the start. Also unlocked by the everywhere spell (together with Inlaid Library, Dairy Plant, Gallo Tower, Cappella Magna).","everywhere");
-ST("Inlaid Library","Second stage. Contains Grim Grimoire. Spell everywhere unlocks it (needs it already earned).","everywhere");
-ST("Dairy Plant","Third stage. Contains Ars Gouda and Milky Way Map.","everywhere");
-ST("Gallo Tower","Fourth stage. Contains Randomazzo and Sorceress' Tears.","everywhere");
-ST("Cappella Magna","Fifth stage. Final stage of the first set.","everywhere");
-ST("Il Molise","Bonus stage (stationary plants). Unlocked by Hyper mode on any normal stage.","relaxenjoylife");
-ST("Moongolow","Bonus stage.","honesty");
-ST("Green Acres","Bonus stage.","dotgogreenacres");
-ST("The Bone Zone","Bonus stage; Bone Orb drops Forbidden Scrolls of Morbane.","rottingpizza");
-ST("Boss Rash","Boss-only challenge stage.","peakgamedesign");
-ST("Bat Country","Bonus stage.","recycletheforest");
-ST("Astral Stair","Bonus stage.","recyclethelibrary");
-ST("Mazerella","Bonus stage.","recycletheplant");
-ST("Tiny Bridge","Bonus stage.","recyclethetower");
-ST("Whiteout","Bonus stage.","buriedinthesnow");
-ST("The Lycaeum","Bonus stage.","honestest");
-ST("Space 54","Bonus stage.","jumptheshark");
-ST("Carlo Cart","Bonus stage.","thenextstopis");
-ST("Laborratory","Bonus stage.","divineassault");
-ST("Westwoods","Bonus stage.","onebranchbandit");
-ST("Room 1665","Holds the Darkasso.","forbiddenbox");
-ST("The Coop","Bonus stage.","coopwhen");
-ST("Holy Forbidden","Holds the Yellow Sign. Enter via spell.","iwanttoseeitagain");
-
-/* ---------- CODES (auto + fun) ---------- */
-const FUN=[["everything","Unlocks level-up weapons and passive items"],["spoopyseason","Halloween theme for Mortaccio, Yatta, Bianca, O'Sole"],["unblindimelda","Unblinded Imelda skin"],["retirepoe","Retired Poe skin"],["rebirdshemoon","Reborn She-Moon skin"],["spinnn","Spins the interface"],["popthecorn","Green Acres with lots of corn"],["kamiki","Starts as O'Sole with Celestial Dusting, Greatest Jubilee, Cherry Bomb and Clover"],["onjupiter","Increased gravity, -40% projectile speed, +25% move speed, 2x Magnet radius"],["andmars","Reduced gravity, same speed/Magnet changes"],["whathappensifisitidleforoneday","Il Molise with timer at 1440:00"],["aintnobodygottimeforthat","Unlocks the minute-31 Arcanas and Game Killer"]];
-FUN.forEach(x=>A("Codes",x[0],x[1],[["Effect",x[1]]],x[0]));
-[...E].filter(e=>e.code&&e.c!=="Codes").forEach(e=>{const c=e.code;if(!E.some(x=>x.c==="Codes"&&x.n===c))A("Codes",c.length>30?c.slice(0,26)+"…":c,e.c+": "+e.n,[["Unlocks","[["+e.n+"]] ("+e.c+")"],["How","Secrets menu → Cast Spell → type the code exactly, no spaces."]],c)});
+/* Add at the end of data.js: Grimoire diagram entries */
+const GR=[
+["Whip",["Hollow Heart"],"Bloody Tear"],
+["Magic Wand",["Empty Tome"],"Holy Wand"],
+["Knife",["Bracer"],"Thousand Edge"],
+["Axe",["Candelabrador"],"Death Spiral"],
+["Cross",["Clover"],"Heaven Sword"],
+["King Bible",["Spellbinder"],"Unholy Vespers"],
+["Fire Wand",["Spinach"],"Hellfire"],
+["Garlic",["Pummarola"],"Soul Eater"],
+["Santa Water",["Attractorb"],"La Borra"],
+["Runetracer",["Armor"],"NO FUTURE"],
+["Lightning Ring",["Duplicator"],"Thunder Loop"],
+["Pentagram",["Crown"],"Gorgeous Moon"],
+["Gatti Amari",["Stone Mask"],"Vicious Hunger"],
+["Song of Mana",["Skull O'Maniac"],"Mannajja"],
+["Shadow Pinion",["Wings"],"Valkyrie Turner"],
+["Clock Lancet",["Silver Ring","Gold Ring"],"Infinite Corridor"],
+["Laurel",["Metaglio Left","Metaglio Right"],"Crimson Shroud"],
+["Peachone + Ebony Wings",[],"Vandalier",1],
+["Phiera Der Tuphello + Eight The Sparrow",["Tirajisú"],"Phieraggi",1],
+["Vento Sacro + Bloody Tear",[],"Fuwalafuwaloo",1],
+["Bracelet",[],"Bi-Bracelet"],
+["Bi-Bracelet",[],"Tri-Bracelet"],
+["Candybox",[],"Super Candybox II Turbo"],
+["Bone",[],"Anima of Mortaccio"],
+["Cherry Bomb",[],"Yatta Daikarin"],
+["Carréllo",[],"Carrozza!"],
+["Celestial Dusting",[],"Profusione D'Amore"],
+["Pako Battiliar",["Hollow Heart"],"Mazo Familiar"],
+["Flames of Misspell",["Torrona's Box"],"Ashes of Muspell"],
+["Glass Fandango",["Wings"],"Celestial Voulge"],
+["Santa Javelin",[],"Seraphic Cry"],
+["Gaze of Gaea",[],"Embrace of Gaea"],
+["Magi-Stone",[],"Kyra-Stones"],
+["Phas3r",[],"Photonstorm"],
+["Chaos Rune",[],"Wicked Ruler"],
+["Victory Sword",["Torrona's Box"],"Sole Solution (gift: sword stays)"]
+];
+GR.forEach(r=>{
+ const union=r[3];
+ const recipe=r[0]+(r[1].length?" + "+r[1].join(" + "):"");
+ A("Grimoire",r[2],recipe,[["Recipe",recipe],["Type",union?"Union":"Evolution"],["How",union?"All listed weapons must be max level; open an eligible chest.":"Max the weapon and required passive(s), then open an eligible chest."]]);
+});
