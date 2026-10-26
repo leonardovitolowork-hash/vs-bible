@@ -1,44 +1,30 @@
-/* GRIMOIRE DIAGRAM DATA */
-const GR=[
-["Whip",["Hollow Heart"],"Bloody Tear"],
-["Magic Wand",["Empty Tome"],"Holy Wand"],
-["Knife",["Bracer"],"Thousand Edge"],
-["Axe",["Candelabrador"],"Death Spiral"],
-["Cross",["Clover"],"Heaven Sword"],
-["King Bible",["Spellbinder"],"Unholy Vespers"],
-["Fire Wand",["Spinach"],"Hellfire"],
-["Garlic",["Pummarola"],"Soul Eater"],
-["Santa Water",["Attractorb"],"La Borra"],
-["Runetracer",["Armor"],"NO FUTURE"],
-["Lightning Ring",["Duplicator"],"Thunder Loop"],
-["Pentagram",["Crown"],"Gorgeous Moon"],
-["Gatti Amari",["Stone Mask"],"Vicious Hunger"],
-["Song of Mana",["Skull O'Maniac"],"Mannajja"],
-["Shadow Pinion",["Wings"],"Valkyrie Turner"],
-["Clock Lancet",["Silver Ring","Gold Ring"],"Infinite Corridor"],
-["Laurel",["Metaglio Left","Metaglio Right"],"Crimson Shroud"],
-["Peachone + Ebony Wings",[],"Vandalier",1],
-["Phiera Der Tuphello + Eight The Sparrow",["Tirajisú"],"Phieraggi",1],
-["Vento Sacro + Bloody Tear",[],"Fuwalafuwaloo",1],
-["Bracelet",[],"Bi-Bracelet"],
-["Bi-Bracelet",[],"Tri-Bracelet"],
-["Candybox",[],"Super Candybox II Turbo"],
-["Bone",[],"Anima of Mortaccio"],
-["Cherry Bomb",[],"Yatta Daikarin"],
-["Carréllo",[],"Carrozza!"],
-["Celestial Dusting",[],"Profusione D'Amore"],
-["Pako Battiliar",["Hollow Heart"],"Mazo Familiar"],
-["Flames of Misspell",["Torrona's Box"],"Ashes of Muspell"],
-["Glass Fandango",["Wings"],"Celestial Voulge"],
-["Santa Javelin",[],"Seraphic Cry"],
-["Gaze of Gaea",[],"Embrace of Gaea"],
-["Magi-Stone",[],"Kyra-Stones"],
-["Phas3r",[],"Photonstorm"],
-["Chaos Rune",[],"Wicked Ruler"],
-["Victory Sword",["Torrona's Box"],"Sole Solution (gift: sword stays)"]
-];
-GR.forEach(r=>{
- const union=r[3];
- const recipe=r[0]+(r[1].length?" + "+r[1].join(" + "):"");
- A("Grimoire",r[2],recipe,[["Recipe",recipe],["Type",union?"Union":"Evolution"],["How",union?"All listed weapons must be max level; open an eligible chest.":"Max the weapon and required passive(s), then open an eligible chest."]]);
+window.applyEvolutionAudit=function(E){
+const R=[["Bloody Tear","Whip","Hollow Heart",false],["Holy Wand","Magic Wand","Empty Tome",false],["Thousand Edge","Knife","Bracer",false],["Death Spiral","Axe","Candelabrador",false],["Heaven Sword","Cross","Clover",false],["Unholy Vespers","King Bible","Spellbinder",false],["Hellfire","Fire Wand","Spinach",false],["Soul Eater","Garlic","Pummarola",false],["La Borra","Santa Water","Attractorb",false],["NO FUTURE","Runetracer","Armor",false],["Thunder Loop","Lightning Ring","Duplicator",false],["Gorgeous Moon","Pentagram","Crown",false],["Vicious Hunger","Gatti Amari","Stone Mask",false],["Mannajja","Song of Mana","Skull O'Maniac",false],["Valkyrie Turner","Shadow Pinion","Wings",false],["Infinite Corridor","Clock Lancet","Silver Ring + Gold Ring",true],["Crimson Shroud","Laurel","Metaglio Left + Metaglio Right",true],["Bi-Bracelet","Bracelet","",false],["Tri-Bracelet","Bi-Bracelet","",false],["Mazo Familiar","Pako Battiliar","Hollow Heart",true],["Gunastrophe","Ammo Appalate","Bracer",true],["Spirit Disturbance","Unearthly Bolt","Tirajisú",true],["Ashes of Muspell","Flames of Misspell","Torrona's Box",true],["Celestial Voulge","Glass Fandango","Wings",true],["Seraphic Cry","Santa Javelin","Clover",true],["Embrace of Gaea","Gaze of Gaea","Parm Aegis",false],["Kyra-Stones","Magi-Stone","Karoma's Mana",false],["Photonstorm","Phas3r","Empty Tome",true],["Wicked Ruler","Chaos Rune","Spellbinder",true],["Vandalier","Peachone + Ebony Wings","",false,"Union"],["Phieraggi","Phiera Der Tuphello + Eight The Sparrow","Tirajisú",false,"Union"],["Fuwalafuwaloo","Vento Sacro + Bloody Tear","",false,"Union"],["Sole Solution","Victory Sword","Torrona's Box",true,"Gift"],["Super Candybox II Turbo","Candybox","",false,"Gift"],["Anima of Mortaccio","Bone","",false,"Morph","Mortaccio","Chaos Malachite"],["Yatta Daikarin","Cherry Bomb","",false,"Morph","Yatta Cavallo","Chaos Rosalia"],["Carrozza!","Carréllo","",false,"Morph","Bianca Ramba","Chaos Lazulia"],["Profusione D'Amore","Celestial Dusting","",false,"Morph","O'Sole Meeo","Chaos Altemanna"]];
+const parts=s=>s?s.split(' + '):[];
+const links=s=>parts(s).map(n=>'[['+n+']]').join(' + ');
+const set=(e,k,v)=>{e.f=e.f.filter(f=>f[0]!==k);e.f.push([k,v]);};
+const find=(c,n)=>E.find(e=>e.c===c&&e.n===n);
+function ensure(c,n){let e=find(c,n);if(!e){e={c,n,s:'',f:[]};E.push(e);}return e;}
+const extra=[['Parm Aegis','Extends invulnerability after taking damage by 50ms per level; 5 levels, +250ms maximum.','Pick up Parm Aegis in The Coop.'],["Karoma's Mana",'Adds +10 Charm and +10% Gold Fever/Gold Finger duration per level; 5 levels, +50 each maximum.',"Pick up Karoma's Mana in Westwoods."]];
+extra.forEach(([n,effect,unlock])=>{const p=ensure('Passives',n);p.s=effect;set(p,'Effect',effect);set(p,'Unlock',unlock);});
+['Candelabrador','Bracer','Spellbinder'].forEach(n=>{const p=find('Passives',n);if(p){p.s=p.s.replace('max 2','max 5');p.f=p.f.map(([k,v])=>[k,typeof v==='string'?v.replace('max 2','max 5'):v]);}});
+const tb=find('Passives',"Torrona's Box");if(tb){tb.s='9 levels: +25% Might/Speed/Duration/Area by level 8; level 9 adds +100% Curse.';set(tb,'Effect',tb.s);}
+const tr=find('Passives','Tirajisú');if(tr){tr.s='2 levels; +1 Revival each. Each revival restores 50% health.';set(tr,'Effect',tr.s);}
+for(let i=E.length-1;i>=0;i--)if(E[i].c==='Grimoire')E.splice(i,1);
+R.forEach(r=>{const [out,weapons,passives,maxPassive,kind='Evolution',character,relic]=r;const recipe=[weapons,passives,relic].filter(Boolean).join(' + ');
+let how='Max '+links(weapons)+'. ';
+if(kind==='Morph')how='Play as [['+character+']], have obtained [['+relic+']], and reach character level 80. The starting weapon morphs automatically; no evolution chest is needed. This is not a normal chest evolution available to every character.';
+else if(out==='Super Candybox II Turbo')how='Obtain Candybox earlier in the run and fully upgrade the equipped weapons and passives so treasure chests award coin bags. The gift can replace a coin bag based on Luck; a five-item chest guarantees it when the conditions are met. This is not a normal max-weapon evolution.';
+else{how+=(passives?(maxPassive?'Max the required passive(s): ':'Hold the required passive(s), any level is sufficient: ')+links(passives)+'. ':'No passive item is required. ');how+='Then open a chest capable of granting an evolution. ';if(kind==='Union')how+='All listed base weapons must be maxed; they merge into one slot. ';if(kind==='Gift')how+='Victory Sword stays equipped; Sole Solution is an additional gift.';}
+const evo=ensure('Evolutions',out);evo.s=recipe;evo.recipe={weapons:parts(weapons),passives:parts(passives).map(name=>({name,max:maxPassive})),type:kind,character:character||null,relic:relic||null};
+set(evo,'Recipe',links(recipe));set(evo,'Type',kind);set(evo,'How',how);set(evo,'Passive level requirement',passives?(maxPassive?'All listed passives must be at MAX level.':'The listed passives only need to be held; MAX level is not required.'):'No passive catalyst; check the special conditions for gifts and morphs.');set(evo,'Recipe source','https://vampire.survivors.wiki/w/Evolution');
+const desc=evo.f.find(f=>f[0]==='What it does');if(desc)desc[1]=desc[1].replace(/;?\s*no passive needed\.?/gi,'').replace(/Both weapons max, no passive\./g,'Both base weapons must be maxed.');
+parts(weapons).forEach(n=>{const w=find('Weapons',n)||find('Evolutions',n);if(w){set(w,'Evolution / combo',links(recipe)+' → [['+out+']]. '+how);if(w.c==='Weapons')w.s='Weapon · '+kind.toLowerCase();}});
+E.push({c:'Grimoire',n:out,s:recipe,f:[['Recipe',links(recipe)],['Type',kind],['How',how],['Passive level requirement',passives?(maxPassive?'MAX required.':'Any level.'): 'None; special conditions may apply.']],recipe:evo.recipe});
 });
+E.filter(e=>e.c==='Passives').forEach(p=>{const uses=R.filter(r=>parts(r[2]).includes(p.n)).map(r=>'[['+r[1].split(' + ').join(']] + [[')+']] → [['+r[0]+']] ('+(r[3]?'passive MAX required':'passive any level')+')');set(p,'Evolution use',uses.join('\n')||'No recipe in the audited set.');});
+const la=find('Weapons','La Robba');if(la){la.s='Weapon · no evolution';set(la,'Evolution / combo','No standard evolution.');}
+const ar=find('Weapons','Arma Dio');if(ar){ar.s='Passive-item selector';set(ar,'Evolution / combo','No weapon evolution: select a passive item.');}
+const notes=ensure('Evolutions','Evolution rules');notes.s='Passive level requirements, morphs, unions and chest eligibility';notes.f=[['General rule','Max the base weapon. Required passives need only be held unless the recipe explicitly says MAX.'],['Chests','Use a chest capable of granting an evolution. In most stages these come from bosses spawned at or after 10 minutes, with stage-specific exceptions.'],['Morphs','The four Chaos-relic character morphs occur at character level 80, with the correct character and relic; no chest is required.'],['Gifts','Sole Solution does not replace Victory Sword. Super Candybox II Turbo uses special chest conditions.'],['Scope','Audited all 38 recipe paths represented by this app. Penshin Fatcha has separate choice-based paths; see its wiki page.'],['Source','https://vampire.survivors.wiki/w/Evolution']];
+if(E.filter(e=>e.c==='Grimoire').length!==38)throw Error('Recipe audit failed: unexpected Grimoire count');
+};

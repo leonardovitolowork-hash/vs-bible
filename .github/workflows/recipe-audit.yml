@@ -1,0 +1,67 @@
+name: Validate recipe audit and deploy
+on:
+  push:
+    branches: [main]
+    paths: ['data.js', '.github/workflows/recipe-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: recipe-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate data and minimally connect the loader
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm'),assert=require('assert');
+          (async()=>{
+            const r=await fetch('https://raw.githubusercontent.com/leonardovitolowork-hash/vs-bible/81e67dc14ecbc361b4a2d047669e4b46cd8e0454/data.js');
+            assert(r.ok,'Cannot obtain recovery data');
+            const sandbox={window:{}};vm.createContext(sandbox);
+            vm.runInContext(await r.text()+';window.entries=E;',sandbox);
+            vm.runInContext(fs.readFileSync('data.js','utf8'),sandbox);
+            const E=sandbox.window.entries,apply=sandbox.window.applyEvolutionAudit;
+            apply(E);const count=E.length;apply(E);assert.equal(E.length,count);
+            const get=n=>E.find(e=>e.c==='Evolutions'&&e.n===n);
+            assert.equal(E.filter(e=>e.c==='Grimoire').length,38);
+            for(const [n,p] of [['Seraphic Cry','Clover'],['Photonstorm','Empty Tome'],['Gunastrophe','Bracer'],['Spirit Disturbance','Tirajisú'],['Wicked Ruler','Spellbinder']]){assert.equal(get(n).recipe.passives[0].name,p);assert.equal(get(n).recipe.passives[0].max,true);}
+            assert.equal(get('Phieraggi').recipe.passives[0].max,false);
+            assert.equal(get('Anima of Mortaccio').recipe.type,'Morph');
+            assert.equal(get('Embrace of Gaea').recipe.passives[0].max,false);
+            assert.equal(get('Kyra-Stones').recipe.passives[0].max,false);
+            let html=fs.readFileSync('index.html','utf8');
+            const tag='<script src="data.js?audit=1"></script>';
+            if(!html.includes(tag)){assert(html.includes('<script>'));html=html.replace('<script>',tag+'<script>');}
+            const marker="const s=document.createElement('script');";
+            if(!html.includes('window.applyEvolutionAudit(E);')){assert(html.includes(marker));html=html.replace(marker,'window.applyEvolutionAudit(E);'+marker);}
+            let sw=fs.readFileSync('sw.js','utf8');const m=sw.match(/const FILES=(\[.*?\]);/);assert(m,'Cannot locate service-worker precache');
+            const files=Array.from(vm.runInNewContext(m[1]));if(!files.includes('data.js?audit=1'))files.push('data.js?audit=1');
+            sw=sw.replace(m[0],'const FILES='+JSON.stringify(files)+';').replace(/const V='[^']+';/,"const V='vs-recipe-audit-1';");
+            fs.writeFileSync('index.html',html);fs.writeFileSync('sw.js',sw);
+            console.log('PASS: 38 recipes, max-level exceptions, morphs, gifts and idempotence.');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - run: node --check data.js && node --check app.js && node --check sw.js
+      - name: Commit validated loader and cache changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html sw.js
+          git diff --cached --quiet || git commit -m 'Connect verified recipe audit before app initialization'
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - uses: actions/deploy-pages@v4
+        id: deployment
