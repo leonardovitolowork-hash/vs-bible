@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grimoire — VS Bible</title>
+<style>
+body{margin:0;background:#12091c;color:#f1e9ff;font:14px/1.45 system-ui,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:0;background:#12091c;padding:10px 12px;border-bottom:1px solid #3a2556;z-index:2}
+h1{margin:0;color:#c9a227;font-size:18px}
+p{color:#a999c4;margin:4px 0 0}
+.back{display:inline-block;margin-top:8px;color:#7fd0ff;text-decoration:none}
+main{padding:12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.pill{padding:6px 10px;border-radius:999px;font-size:12px}
+.w{background:#2a1941}.p{background:#1f3a4d}.e{background:#4a2f10;color:#ffd35c}.u{background:#4a1030;color:#ff9ec7}
+.grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:#1f1230;border:1px solid #3a2556;border-radius:14px;padding:10px}
+.row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.node{padding:7px 9px;border-radius:9px;font-weight:700;background:#2a1941}
+.plus{color:#c9a227;font-weight:800}
+.arrow{color:#a999c4}
+.result{background:#4a2f10;color:#ffd35c}
+.union{background:#4a1030;color:#ff9ec7}
+.small{color:#a999c4;font-size:12px;margin-top:6px}
+</style>
+</head>
+<body>
+<header>
+<h1>📖 Grimoire — Evolutions at a glance</h1>
+<p>Weapon + required passive(s) → evolution. Unions need every listed weapon at max level.</p>
+<a class="back" href="index.html">← Back to VS Bible</a>
+<div class="legend">
+<span class="pill w">Weapon</span><span class="pill p">Passive</span><span class="pill e">Evolution</span><span class="pill u">Union</span>
+</div>
+</header>
+<main id="g"></main>
+<script>
+const R=[
+["Whip",["Hollow Heart"],"Bloody Tear"],
+["Magic Wand",["Empty Tome"],"Holy Wand"],
+["Knife",["Bracer"],"Thousand Edge"],
+["Axe",["Candelabrador"],"Death Spiral"],
+["Cross",["Clover"],"Heaven Sword"],
+["King Bible",["Spellbinder"],"Unholy Vespers"],
+["Fire Wand",["Spinach"],"Hellfire"],
+["Garlic",["Pummarola"],"Soul Eater"],
+["Santa Water",["Attractorb"],"La Borra"],
+["Runetracer",["Armor"],"NO FUTURE"],
+["Lightning Ring",["Duplicator"],"Thunder Loop"],
+["Pentagram",["Crown"],"Gorgeous Moon"],
+["Gatti Amari",["Stone Mask"],"Vicious Hunger"],
+["Song of Mana",["Skull O'Maniac"],"Mannajja"],
+["Shadow Pinion",["Wings"],"Valkyrie Turner"],
+["Clock Lancet",["Silver Ring","Gold Ring"],"Infinite Corridor"],
+["Laurel",["Metaglio Left","Metaglio Right"],"Crimson Shroud"],
+["Peachone + Ebony Wings",[],"Vandalier",1],
+["Phiera Der Tuphello + Eight The Sparrow",["Tirajisú"],"Phieraggi",1],
+["Vento Sacro + Bloody Tear",[],"Fuwalafuwaloo",1],
+["Bracelet",[],"Bi-Bracelet"],
+["Bi-Bracelet",[],"Tri-Bracelet"],
+["Candybox",[],"Super Candybox II Turbo"],
+["Bone",[],"Anima of Mortaccio"],
+["Cherry Bomb",[],"Yatta Daikarin"],
+["Carréllo",[],"Carrozza!"],
+["Celestial Dusting",[],"Profusione D'Amore"],
+["Pako Battiliar",["Hollow Heart"],"Mazo Familiar"],
+["Flames of Misspell",["Torrona's Box"],"Ashes of Muspell"],
+["Glass Fandango",["Wings"],"Celestial Voulge"],
+["Santa Javelin",[],"Seraphic Cry"],
+["Gaze of Gaea",[],"Embrace of Gaea"],
+["Magi-Stone",[],"Kyra-Stones"],
+["Phas3r",[],"Photonstorm"],
+["Chaos Rune",[],"Wicked Ruler"],
+["Victory Sword",["Torrona's Box"],"Sole Solution (gift: sword stays)"]
+];
+document.getElementById('g').innerHTML=R.map(r=>{
+ const union=r[3];
+ const left=r[0].split(' + ').map(x=>'<span class="node '+(union?'u':'w')+'">'+x+'</span>').join('<span class="plus">+</span>');
+ const pass=r[1].map(x=>'<span class="node p">'+x+'</span>').join('<span class="plus">+</span>');
+ return '<div class="card"><div class="row">'+left+(pass?'<span class="plus">+</span>'+pass:'')+'<span class="arrow">→</span><span class="node '+(union?'union':'result')+'">'+r[2]+'</span></div><div class="small">'+(union?'Union: all listed weapons must be max level.':'Max the weapon and passive, then open an eligible chest.')+'</div></div>';
+}).join('');
+</script>
+</body>
+</html>
