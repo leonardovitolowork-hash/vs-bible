@@ -1,4 +1,4 @@
-/* Add at the end of data.js: Grimoire diagram entries */
+/* GRIMOIRE DIAGRAM DATA */
 const GR=[
 ["Whip",["Hollow Heart"],"Bloody Tear"],
 ["Magic Wand",["Empty Tome"],"Holy Wand"],
