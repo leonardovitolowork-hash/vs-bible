@@ -1,33 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07061a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="VS Bible">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon.svg">
-<link rel="stylesheet" href="style.css">
-<title>Mimi and Leo's Bible for Vampire Surviving</title>
-</head>
-<body>
-<div id="stars"></div>
-<div id="bar" class="hidden"><button id="back">◀ MENU</button><span id="count"></span></div>
-<section id="home">
-<div class="bats"><span>🦇</span><span>🦇</span><span>🦇</span></div>
-<div class="moon"></div>
-<h1 class="logo"><small>Mimi and Leo's</small>BIBLE<small>for</small>VAMPIRE<br>SURVIVING</h1>
-<div id="menu"></div>
-<p class="foot">Base game only · tap an entry for the details · works offline</p>
-</section>
-<div id="searchwrap"><input id="q" type="search" placeholder="🔍 Search: name, effect, cheat code…" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
-<main id="list" class="hidden"></main>
-<div id="sheet" class="hidden"><div class="card"><button id="close" aria-label="Close">✕</button><div id="detail"></div></div></div>
-<script src="data.js"></script>
-<script src="grimoire-view.js"></script>
-<script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10091e"><link rel="manifest" href="manifest.webmanifest"><title>Mimi and Leo's VS Bible</title><style>
+*{box-sizing:border-box}body{margin:0;background:#10091e;color:#f4edff;font:16px/1.45 system-ui,sans-serif;padding-bottom:30px}.hidden{display:none!important}button,input{font:inherit}button,a{cursor:pointer}button{background:#302044;color:#fff;border:1px solid #826233;border-radius:9px;padding:12px}#home{text-align:center;padding:24px 14px}.logo{color:#ffd45e;line-height:1.3}.logo small{display:block;font-size:17px}#menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:660px;margin:auto}.mb{text-align:left;min-height:100px}.mb b{display:block;font-size:26px}.mb i{display:block;font-size:12px;color:#d5bc86}.foot,.sb,.ch,.gnote{color:#b9abc9;font-size:13px}#bar{position:sticky;top:0;background:#10091ef5;z-index:4;padding:10px;display:flex;align-items:center;justify-content:space-between}#count{color:#ffd45e;font-size:13px}#searchwrap{max-width:1000px;margin:auto;padding:12px}#q{width:100%;padding:14px;background:#21152f;color:#fff;border:1px solid #97753d;border-radius:10px}#list{max-width:1000px;margin:auto;padding:12px}.item{display:flex;align-items:center;gap:12px;background:#251735;border:1px solid #443057;border-radius:10px;padding:12px;margin-bottom:9px;cursor:pointer}.meta{flex:1;min-width:0}.nm{font-weight:700}.sb{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.av{width:44px;height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:center;border-radius:8px;overflow:hidden}.av img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}.cd{font-size:11px;color:#ffd45e;max-width:30%;overflow:hidden;text-overflow:ellipsis}.grp,.cg{color:#ffd45e;margin:16px 0 8px}#sheet{position:fixed;inset:0;background:#000b;z-index:9;display:flex;align-items:flex-end;justify-content:center}.card{width:100%;max-width:750px;max-height:90dvh;overflow:auto;background:#21152f;padding:20px;border-radius:16px 16px 0 0}#close{float:right;position:sticky;top:0}.hero{display:flex;gap:14px;align-items:center}h2{color:#ffd45e;font-size:22px}.f{margin:14px 0;padding:12px;background:#160e21;border-radius:8px}.f b{display:block;font-size:12px;color:#ffd45e;text-transform:uppercase}.f div{white-space:pre-wrap}.lk,.wiki,.chip{color:#94d6ff}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:6px;background:#35234c;border-radius:6px}.code{display:flex;align-items:center;gap:9px;padding:12px;background:#392708}.code code{flex:1;word-break:break-all;color:#ffdb7d}.empty{text-align:center;padding:30px}.grimoire{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:10px}.gcard{border:1px solid #705233;background:#21152f;border-radius:12px;padding:12px}.grow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.gnode{padding:7px;border-radius:7px;background:#45305e;font-weight:600;font-size:13px}.gnode.passive{background:#164958}.gnode.gevolution{background:#624309;color:#ffe3a0}.gnode.gunion{background:#612042;color:#ffd3eb}.gplus,.garrow{color:#ffd45e}.gnote{margin-top:9px}#status{max-width:700px;margin:15px auto;padding:12px;background:#352044;border-radius:8px}#stars,.moon,.bats{display:none}
+</style><body><div id="stars"></div><div id="bar" class="hidden"><button id="back">◀ MENU</button><span id="count"></span></div><section id="home"><h1 class="logo"><small>Mimi and Leo's</small>VAMPIRE SURVIVORS BIBLE</h1><div id="menu"></div><p class="foot">Base game · search all chapters · Grimoire diagrams</p></section><p id="status" role="status">Restoring reference database…</p><div id="searchwrap"><input id="q" type="search" placeholder="Search weapons, cards, recipes, codes…" autocomplete="off"></div><main id="list" class="hidden"></main><div id="sheet" class="hidden"><div class="card"><button id="close">✕</button><div id="detail"></div></div></div><script>
+(async()=>{const status=document.getElementById('status');try{let source=null;try{source=localStorage.getItem('vs-recovery-database-81')}catch(e){}if(!source){const r=await fetch('https://raw.githubusercontent.com/leonardovitolowork-hash/vs-bible/81e67dc14ecbc361b4a2d047669e4b46cd8e0454/data.js');if(!r.ok)throw Error('Database download: '+r.status);source=await r.text()}window.E=new Function(source+';return E;')();if(!Array.isArray(E)||E.length<100)throw Error('Incomplete database');try{localStorage.setItem('vs-recovery-database-81',source);localStorage.removeItem('vsimg2')}catch(e){}for(const e of E){if(e.c==='Weapons')delete e.code}const evolutions=E.filter(e=>e.c==='Evolutions');evolutions.forEach(e=>E.push({c:'Grimoire',n:e.n,s:e.s,f:[['Recipe',e.s],['Type',['Vandalier','Phieraggi','Fuwalafuwaloo'].includes(e.n)?'Union':'Evolution']]}));const s=document.createElement('script');s.src='app.js?recovery=1';s.onload=()=>{status.textContent='Recovery loaded · '+E.length+' entries';setTimeout(()=>status.remove(),3500)};s.onerror=()=>status.textContent='App script did not load. Please refresh while online.';document.body.appendChild(s)}catch(e){status.textContent='Recovery failed: '+e.message+' — reload while online.'}})();
+</script></body></html>
