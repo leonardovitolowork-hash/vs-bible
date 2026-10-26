@@ -1,0 +1,627 @@
+{
+  "requested": 155,
+  "downloaded": 155,
+  "missing": [],
+  "sources": {
+    "Ammo Appalate": {
+      "file": "Sprite-Ammo_Appalate.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Ammo_Appalate.png?abc7f"
+    },
+    "Anima of Mortaccio": {
+      "file": "Sprite-Anima_of_Mortaccio.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Anima_of_Mortaccio.png?0a815"
+    },
+    "Antonio Belpaese": {
+      "file": "Sprite-Antonio_Belpaese.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Antonio_Belpaese.png?15963"
+    },
+    "Arca Ladonna": {
+      "file": "Sprite-Arca_Ladonna.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Arca_Ladonna.png?fb058"
+    },
+    "Arma Dio": {
+      "file": "Sprite-Arma_Dio.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Arma_Dio.png?36163"
+    },
+    "Armor": {
+      "file": "Sprite-Armor.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Armor.png?4db6a"
+    },
+    "Ashes of Muspell": {
+      "file": "Sprite-Ashes_of_Muspell.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Ashes_of_Muspell.png?b2a0e"
+    },
+    "Attractorb": {
+      "file": "Sprite-Attractorb.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Attractorb.png?d3581"
+    },
+    "Avatar Infernas": {
+      "file": "Sprite-Avatar_Infernas.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Avatar_Infernas.png?466d6"
+    },
+    "Axe": {
+      "file": "Sprite-Axe.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Axe.png?8842d"
+    },
+    "Bat Robbert": {
+      "file": "Sprite-Bat_Robbert.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bat_Robbert.png?f7204"
+    },
+    "Bats Bats Bats": {
+      "file": "Sprite-Bats_Bats_Bats.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bats_Bats_Bats.png?5e315"
+    },
+    "Bi-Bracelet": {
+      "file": "Sprite-Bi-Bracelet.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bi-Bracelet.png?84eb3"
+    },
+    "Bianca Ramba": {
+      "file": "Sprite-Bianca_Ramba.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bianca_Ramba.png?51305"
+    },
+    "Big Troubler": {
+      "file": "Sprite-Big_Troubler.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Big_Troubler.png?751ec"
+    },
+    "Big Trouser": {
+      "file": "Sprite-Big_Trouser.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Big_Trouser.png?570ca"
+    },
+    "Bloody Tear": {
+      "file": "Sprite-Bloody_Tear.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bloody_Tear.png?77651"
+    },
+    "Bone": {
+      "file": "Sprite-Bone.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bone.png?b0286"
+    },
+    "Boon Marrabbio": {
+      "file": "Sprite-Boon_Marrabbio.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Boon_Marrabbio.png?1c380"
+    },
+    "Bracelet": {
+      "file": "Sprite-Bracelet.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bracelet.png?41b87"
+    },
+    "Bracer": {
+      "file": "Sprite-Bracer.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Bracer.png?5725f"
+    },
+    "Candelabrador": {
+      "file": "Sprite-Candelabrador.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Candelabrador.png?2d499"
+    },
+    "Candybox": {
+      "file": "Sprite-Candybox.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Candybox.png?f1d13"
+    },
+    "Carrozza!": {
+      "file": "Sprite-Carrozza!.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Carrozza%21.png?85e36"
+    },
+    "Carréllo": {
+      "file": "Sprite-Carréllo.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Carr%C3%A9llo.png?61863"
+    },
+    "Celestial Dusting": {
+      "file": "Sprite-Celestial_Dusting.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Celestial_Dusting.png?1a750"
+    },
+    "Celestial Voulge": {
+      "file": "Sprite-Celestial_Voulge.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Celestial_Voulge.png?b07b4"
+    },
+    "Chaos Rune": {
+      "file": "Sprite-Chaos_Rune.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Chaos_Rune.png?2d0e4"
+    },
+    "Cherry Bomb": {
+      "file": "Sprite-Cherry_Bomb.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Cherry_Bomb.png?700dd"
+    },
+    "Christine Davain": {
+      "file": "Sprite-Christine_Davain.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Christine_Davain.png?4de36"
+    },
+    "Chula-Reh": {
+      "file": "Sprite-Chula-Reh.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Chula-Reh.png?24da3"
+    },
+    "Clock Lancet": {
+      "file": "Sprite-Clock_Lancet.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Clock_Lancet.png?0d57b"
+    },
+    "Clover": {
+      "file": "Sprite-Clover.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Clover.png?42c96"
+    },
+    "Concetta Caciotta": {
+      "file": "Sprite-Concetta_Caciotta.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Concetta_Caciotta.png?8651b"
+    },
+    "Cosmo Pavone": {
+      "file": "Sprite-Cosmo_Pavone.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Cosmo_Pavone.png?724c4"
+    },
+    "Crimson Shroud": {
+      "file": "Sprite-Crimson_Shroud.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Crimson_Shroud.png?29dfd"
+    },
+    "Cross": {
+      "file": "Sprite-Cross.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Cross.png?4b7cf"
+    },
+    "Crown": {
+      "file": "Sprite-Crown.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Crown.png?d2182"
+    },
+    "Death Spiral": {
+      "file": "Sprite-Death_Spiral.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Death_Spiral.png?9b757"
+    },
+    "Divano Thelma": {
+      "file": "Sprite-Divano_Thelma.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Divano_Thelma.png?0a801"
+    },
+    "Dommario": {
+      "file": "Sprite-Dommario.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Dommario.png?506b7"
+    },
+    "Duplicator": {
+      "file": "Sprite-Duplicator.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Duplicator.png?70d50"
+    },
+    "Ebony Wings": {
+      "file": "Sprite-Ebony_Wings.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Ebony_Wings.png?9a601"
+    },
+    "Eight The Sparrow": {
+      "file": "Sprite-Eight_The_Sparrow.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Eight_The_Sparrow.png?1e0f9"
+    },
+    "Embrace of Gaea": {
+      "file": "Sprite-Embrace_of_Gaea.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Embrace_of_Gaea.png?41243"
+    },
+    "Empty Tome": {
+      "file": "Sprite-Empty_Tome.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Empty_Tome.png?7a19a"
+    },
+    "Exdash Exiviiq": {
+      "file": "Sprite-Exdash_Exiviiq.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Exdash_Exiviiq.png?e9083"
+    },
+    "Fire Wand": {
+      "file": "Sprite-Fire_Wand.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Fire_Wand.png?cf1e7"
+    },
+    "Flames of Misspell": {
+      "file": "Sprite-Flames_of_Misspell.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Flames_of_Misspell.png?23c57"
+    },
+    "Fuwalafuwaloo": {
+      "file": "Sprite-Fuwalafuwaloo.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Fuwalafuwaloo.png?38fb7"
+    },
+    "Gains Boros": {
+      "file": "Sprite-Gains_Boros.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gains_Boros.png?bcf89"
+    },
+    "Garlic": {
+      "file": "Sprite-Garlic.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Garlic.png?797f3"
+    },
+    "Gatti Amari": {
+      "file": "Sprite-Gatti_Amari.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gatti_Amari.png?fd3fd"
+    },
+    "Gaze of Gaea": {
+      "file": "Sprite-Gaze_of_Gaea.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gaze_of_Gaea.png?72ff1"
+    },
+    "Gazebo": {
+      "file": "Sprite-Gazebo.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gazebo.png?67353"
+    },
+    "Gennaro Belpaese": {
+      "file": "Sprite-Gennaro_Belpaese.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gennaro_Belpaese.png?7a9b7"
+    },
+    "Giovanna Grana": {
+      "file": "Sprite-Giovanna_Grana.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Giovanna_Grana.png?f4082"
+    },
+    "Glass Fandango": {
+      "file": "Sprite-Glass_Fandango.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Glass_Fandango.png?3c8b5"
+    },
+    "Gold Ring": {
+      "file": "Sprite-Gold_Ring.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gold_Ring.png?f63b3"
+    },
+    "Gorgeous Moon": {
+      "file": "Sprite-Gorgeous_Moon.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gorgeous_Moon.png?84c2b"
+    },
+    "Gyoruntin": {
+      "file": "Sprite-Gyoruntin.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gyoruntin.png?5cb70"
+    },
+    "Gyorunton": {
+      "file": "Sprite-Gyorunton.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Gyorunton.png?84452"
+    },
+    "Heaven Sword": {
+      "file": "Sprite-Heaven_Sword.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Heaven_Sword.png?9b757"
+    },
+    "Hellfire": {
+      "file": "Sprite-Hellfire.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Hellfire.png?e82a9"
+    },
+    "Hollow Heart": {
+      "file": "Sprite-Hollow_Heart.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Hollow_Heart.png?97627"
+    },
+    "Holy Wand": {
+      "file": "Sprite-Holy_Wand.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Holy_Wand.png?9b757"
+    },
+    "Iguana Gallo Valletto": {
+      "file": "Sprite-Iguana_Gallo_Valletto.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Iguana_Gallo_Valletto.png?9ad15"
+    },
+    "Imelda Belpaese": {
+      "file": "Sprite-Imelda_Belpaese.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Imelda_Belpaese.png?3e27d"
+    },
+    "Infinite Corridor": {
+      "file": "Sprite-Infinite_Corridor.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Infinite_Corridor.png?d9e4c"
+    },
+    "King Bible": {
+      "file": "Sprite-King_Bible.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-King_Bible.png?9249b"
+    },
+    "Knife": {
+      "file": "Sprite-Knife.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Knife.png?2ada0"
+    },
+    "Krochi Freetto": {
+      "file": "Sprite-Krochi_Freetto.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Krochi_Freetto.png?b5e5b"
+    },
+    "Kyra-Stones": {
+      "file": "Sprite-Kyra-Stones.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Kyra-Stones.png?abc7f"
+    },
+    "La Borra": {
+      "file": "Sprite-La_Borra.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-La_Borra.png?6d9a7"
+    },
+    "La Robba": {
+      "file": "Sprite-La_Robba.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-La_Robba.png?984ef"
+    },
+    "Lama Ladonna": {
+      "file": "Sprite-Lama_Ladonna.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Lama_Ladonna.png?e8bc1"
+    },
+    "Laurel": {
+      "file": "Sprite-Laurel.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Laurel.png?9a601"
+    },
+    "Leda": {
+      "file": "Sprite-Leda.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Leda.png?4499d"
+    },
+    "Lightning Ring": {
+      "file": "Sprite-Lightning_Ring.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Lightning_Ring.png?4b7cf"
+    },
+    "Magi-Stone": {
+      "file": "Sprite-Magi-Stone.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Magi-Stone.png?abc7f"
+    },
+    "Magic Wand": {
+      "file": "Sprite-Magic_Wand.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Magic_Wand.png?acb45"
+    },
+    "Mannajja": {
+      "file": "Sprite-Mannajja.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Mannajja.png?f9977"
+    },
+    "Mask of the Red Death": {
+      "file": "Sprite-Mask_of_the_Red_Death.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Mask_of_the_Red_Death.png?ad79e"
+    },
+    "Mazo Familiar": {
+      "file": "Sprite-Mazo_Familiar.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Mazo_Familiar.png?89ebd"
+    },
+    "Metaglio Left": {
+      "file": "Sprite-Metaglio_Left.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Metaglio_Left.png?c8ec2"
+    },
+    "Metaglio Right": {
+      "file": "Sprite-Metaglio_Right.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Metaglio_Right.png?18325"
+    },
+    "Minnah Mannarah": {
+      "file": "Sprite-Minnah_Mannarah.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Minnah_Mannarah.png?eefea"
+    },
+    "Mortaccio": {
+      "file": "Sprite-Mortaccio.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Mortaccio.png?9e086"
+    },
+    "NO FUTURE": {
+      "file": "Sprite-NO_FUTURE.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-NO_FUTURE.png?9ffdb"
+    },
+    "O'Sole Meeo": {
+      "file": "Sprite-O'Sole_Meeo.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-O%27Sole_Meeo.png?51fcd"
+    },
+    "Pako Battiliar": {
+      "file": "Sprite-Pako_Battiliar.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Pako_Battiliar.png?89ebd"
+    },
+    "Para Kooleo": {
+      "file": "Sprite-Para_Kooleo.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Para_Kooleo.png?751ec"
+    },
+    "Pasqualina Belpaese": {
+      "file": "Sprite-Pasqualina_Belpaese.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Pasqualina_Belpaese.png?1232b"
+    },
+    "Peachone": {
+      "file": "Sprite-Peachone.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Peachone.png?28df1"
+    },
+    "Penshin Fatcha": {
+      "file": "Sprite-Penshin_Fatcha.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Penshin_Fatcha.png?07e61"
+    },
+    "Pentagram": {
+      "file": "Sprite-Pentagram.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Pentagram.png?28df1"
+    },
+    "Peppino": {
+      "file": "Sprite-Peppino.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Peppino.png?7b2a0"
+    },
+    "Phas3r": {
+      "file": "Sprite-Phas3r.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Phas3r.png?8fb8d"
+    },
+    "Phiera Der Tuphello": {
+      "file": "Sprite-Phiera_Der_Tuphello.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Phiera_Der_Tuphello.png?1feb6"
+    },
+    "Phieraggi": {
+      "file": "Sprite-Phieraggi.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Phieraggi.png?1feb6"
+    },
+    "Photonstorm": {
+      "file": "Sprite-Photonstorm.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Photonstorm.png?fd8ae"
+    },
+    "Poe Ratcho": {
+      "file": "Sprite-Poe_Ratcho.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Poe_Ratcho.png?dbb9a"
+    },
+    "Poppea Pecorina": {
+      "file": "Sprite-Poppea_Pecorina.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Poppea_Pecorina.png?67666"
+    },
+    "Porta Ladonna": {
+      "file": "Sprite-Porta_Ladonna.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Porta_Ladonna.png?0f843"
+    },
+    "Profusione D'Amore": {
+      "file": "Sprite-Profusione_D'Amore.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Profusione_D%27Amore.png?79daf"
+    },
+    "Pugnala Provola": {
+      "file": "Sprite-Pugnala_Provola.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Pugnala_Provola.png?692f8"
+    },
+    "Pummarola": {
+      "file": "Sprite-Pummarola.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Pummarola.png?32107"
+    },
+    "Queen Sigma": {
+      "file": "Sprite-Queen_Sigma.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Queen_Sigma.png?f973c"
+    },
+    "Random": {
+      "file": "Sprite-Random.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Random.png?75536"
+    },
+    "Rose De Infernas": {
+      "file": "Sprite-Rose_De_Infernas.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Rose_De_Infernas.png?d5168"
+    },
+    "Runetracer": {
+      "file": "Sprite-Runetracer.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Runetracer.png?13e1f"
+    },
+    "Santa Javelin": {
+      "file": "Sprite-Santa_Javelin.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Santa_Javelin.png?8b428"
+    },
+    "Santa Ladonna": {
+      "file": "Sprite-Santa_Ladonna.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Santa_Ladonna.png?b6bc6"
+    },
+    "Santa Water": {
+      "file": "Sprite-Santa_Water.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Santa_Water.png?d7709"
+    },
+    "Scorej-Oni": {
+      "file": "Sprite-Scorej-Oni.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Scorej-Oni.png?58975"
+    },
+    "Secretino Dagsson": {
+      "file": "Sprite-Secretino_Dagsson.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Secretino_Dagsson.png?d6892"
+    },
+    "Seraphic Cry": {
+      "file": "Sprite-Seraphic_Cry.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Seraphic_Cry.png?c4a45"
+    },
+    "Shadow Pinion": {
+      "file": "Sprite-Shadow_Pinion.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Shadow_Pinion.png?d2070"
+    },
+    "She-Moon Eeta": {
+      "file": "Sprite-She-Moon_Eeta.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-She-Moon_Eeta.png?6fcaa"
+    },
+    "Silver Ring": {
+      "file": "Sprite-Silver_Ring.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Silver_Ring.png?97ad7"
+    },
+    "Sir Ambrojoe": {
+      "file": "Sprite-Sir_Ambrojoe.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Sir_Ambrojoe.png?d3a30"
+    },
+    "Skull O'Maniac": {
+      "file": "Sprite-Skull_O'Maniac.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Skull_O%27Maniac.png?3f901"
+    },
+    "Smith IV": {
+      "file": "Sprite-Smith_IV.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Smith_IV.png?a43b0"
+    },
+    "Sole Solution": {
+      "file": "Sprite-Sole_Solution.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Sole_Solution.png?bc686"
+    },
+    "Song of Mana": {
+      "file": "Sprite-Song_of_Mana.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Song_of_Mana.png?70ff8"
+    },
+    "Soul Eater": {
+      "file": "Sprite-Soul_Eater.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Soul_Eater.png?e82a9"
+    },
+    "Space Dette": {
+      "file": "Sprite-Space_Dette.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Space_Dette.png?fd54e"
+    },
+    "Space Dude": {
+      "file": "Sprite-Space_Dude.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Space_Dude.png?89a16"
+    },
+    "Spellbinder": {
+      "file": "Sprite-Spellbinder.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Spellbinder.png?159cc"
+    },
+    "Spinach": {
+      "file": "Sprite-Spinach.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Spinach.png?f8bd7"
+    },
+    "Stone Mask": {
+      "file": "Sprite-Stone_Mask.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Stone_Mask.png?05db5"
+    },
+    "Suor Clerici": {
+      "file": "Sprite-Suor_Clerici.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Suor_Clerici.png?1781f"
+    },
+    "Super Candybox II Turbo": {
+      "file": "Sprite-Super_Candybox_II_Turbo.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Super_Candybox_II_Turbo.png?c50b3"
+    },
+    "Thousand Edge": {
+      "file": "Sprite-Thousand_Edge.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Thousand_Edge.png?2ee12"
+    },
+    "Thunder Loop": {
+      "file": "Sprite-Thunder_Loop.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Thunder_Loop.png?dbb1f"
+    },
+    "Tirajisú": {
+      "file": "Sprite-Tirajisú.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Tirajis%C3%BA.png?8f699"
+    },
+    "Toastie": {
+      "file": "Sprite-Toastie.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Toastie.png?48be2"
+    },
+    "Torino": {
+      "file": "Sprite-Torino.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Torino.png?874ab"
+    },
+    "Torrona's Box": {
+      "file": "Sprite-Torrona's_Box.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Torrona%27s_Box.png?fbfa1"
+    },
+    "Tri-Bracelet": {
+      "file": "Sprite-Tri-Bracelet.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Tri-Bracelet.png?8ff08"
+    },
+    "Unearthly Bolt": {
+      "file": "Sprite-Unearthly_Bolt.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Unearthly_Bolt.png?07e61"
+    },
+    "Unholy Vespers": {
+      "file": "Sprite-Unholy_Vespers.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Unholy_Vespers.png?9b757"
+    },
+    "Valkyrie Turner": {
+      "file": "Sprite-Valkyrie_Turner.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Valkyrie_Turner.png?1a1eb"
+    },
+    "Vandalier": {
+      "file": "Sprite-Vandalier.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Vandalier.png?30dfc"
+    },
+    "Vento Sacro": {
+      "file": "Sprite-Vento_Sacro.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Vento_Sacro.png?9adbc"
+    },
+    "Vicious Hunger": {
+      "file": "Sprite-Vicious_Hunger.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Vicious_Hunger.png?cd572"
+    },
+    "Victory Sword": {
+      "file": "Sprite-Victory_Sword.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Victory_Sword.png?0dc4f"
+    },
+    "Whip": {
+      "file": "Sprite-Whip.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Whip.png?71b7a"
+    },
+    "Wicked Ruler": {
+      "file": "Sprite-Wicked_Ruler.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Wicked_Ruler.png?2d0e4"
+    },
+    "Wings": {
+      "file": "Sprite-Wings.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Wings.png?57a34"
+    },
+    "Yatta Cavallo": {
+      "file": "Sprite-Yatta_Cavallo.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Yatta_Cavallo.png?7ca65"
+    },
+    "Yatta Daikarin": {
+      "file": "Sprite-Yatta_Daikarin.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Yatta_Daikarin.png?2fb5b"
+    },
+    "Zi'Appunta Belpaese": {
+      "file": "Sprite-Zi'Appunta_Belpaese.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Zi%27Appunta_Belpaese.png?874ab"
+    },
+    "Zi'Assunta Belpaese": {
+      "file": "Sprite-Zi'Assunta_Belpaese.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-Zi%27Assunta_Belpaese.png?2f3cb"
+    },
+    "missingN▯": {
+      "file": "Sprite-missingN▯.png",
+      "url": "https://vampire.survivors.wiki/images/Sprite-missingN%E2%96%AF.png?87693"
+    }
+  }
+}
