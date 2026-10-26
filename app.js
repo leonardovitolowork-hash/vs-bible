@@ -15,6 +15,8 @@ const ini=n=>n.replace(/[^A-Za-z0-9 ]/g,"").split(" ").filter(Boolean).slice(0,2
 const key=e=>(e.w||e.n).replace(/ \([IVX0]+\)$/,"");
 function av(e){const u=IMG[key(e)];return '<div class="av" data-t="'+esc(key(e))+'" style="background:'+(COL[e.c]||"#333")+'">'+(u?'<img loading="lazy" src="'+u+'" alt="">':(ICON[e.c]||ini(e.n)))+'</div>'}
 function home(){$("#menu").innerHTML=CHAPS.map((c,i)=>'<button class="mb'+(i===CHAPS.length-1?" wide":"")+'" data-c="'+c+'"><b>'+ICON[c]+'</b>'+c.toUpperCase()+'<i>'+E.filter(e=>e.c===c).length+' entries</i></button>').join("")}
+function grimoireIconEntry(name){return E.find(e=>e.n===name&&["Weapons","Passives","Evolutions"].includes(e.c))||{n:name,c:"Weapons"}}
+function grimoireIcon(name){return av(grimoireIconEntry(name)).replace('style="','style="width:24px;height:24px;flex:0 0 24px;font-size:14px;')}
 function grimoireCard(e){
  const recipe=e.s||"";
  const parts=recipe.split(" + ");
@@ -23,9 +25,9 @@ function grimoireCard(e){
  parts.forEach((p,i)=>{
  if(i)h+='<span class="gplus">+</span>';
  const isPassive=i>0&&parts.length>1&&!isUnion;
- h+='<span class="gnode '+(isPassive?'passive':'weapon')+'">'+esc(p)+'</span>';
+ h+='<span class="gnode '+(isPassive?'passive':'weapon')+'" style="display:inline-flex;align-items:center;gap:6px">'+grimoireIcon(p)+'<span>'+esc(p)+'</span></span>';
  });
- h+='<span class="garrow">→</span><span class="gnode '+(isUnion?'gunion':'gevolution')+'">'+esc(e.n)+'</span>';
+ h+='<span class="garrow">→</span><span class="gnode '+(isUnion?'gunion':'gevolution')+'" style="display:inline-flex;align-items:center;gap:6px">'+grimoireIcon(e.n)+'<span>'+esc(e.n)+'</span></span>';
  h+='</div><div class="gnote">'+(isUnion?'Union — all listed weapons must be max level':'Max the weapon and required passive(s), then open an eligible chest')+'</div></div>';
  return h;
 }
@@ -40,6 +42,7 @@ function view(){
  $("#count").textContent=(chap?chap.toUpperCase()+" · ":"SEARCH · ")+rows.length;
  if(chap==="Grimoire"){
  $("#list").innerHTML='<div class="grimoire">'+rows.map(grimoireCard).join("")+'</div>';
+ loadIcons(rows.flatMap(e=>[...(e.s||"").split(" + "),e.n].map(grimoireIconEntry)));
  return;
  }
  let h="",last="";
